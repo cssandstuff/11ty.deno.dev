@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "generate": "deno run --allow-read --allow-write --allow-env --allow-sys npm:@11ty/eleventy",
+    "dev": "deno task generate && deno run --watch --allow-net --allow-read server.ts"
+  },
+  "imports": {
+    "@11ty/eleventy": "https://esm.sh/@11ty/eleventy"
+  }
+}
