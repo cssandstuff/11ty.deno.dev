@@ -1,0 +1,24 @@
+<!-- <script webc:type="js" webc:is="template" webc:root="override">
+	if (level) {
+		isLevel = `<h${level} webc:root="override"><slot></slot></h${level}>`
+	} 
+</script> -->
+
+<!--- could also be done like this --->
+<h1 webc:root="override" class="h1"><slot></slot></h1>
+
+<style webc:scoped>
+	:host{
+		display: block;
+	}
+
+	:host:is(h1){
+		padding: var(--space);
+		background-color: var(--yellow);
+		color: var(--black);
+	}
+
+	:host *+* {
+		margin-top: calc(var(--margin)/2);
+	}
+</style>

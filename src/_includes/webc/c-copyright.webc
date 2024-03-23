@@ -1,0 +1,7 @@
+<script webc:type="render" webc:is="template">
+	function year() {
+		const now = new Date();
+
+		return `&copy; ${now.getFullYear()} cssandstuff.`;
+	}
+</script>

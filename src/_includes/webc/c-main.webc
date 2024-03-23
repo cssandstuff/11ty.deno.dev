@@ -1,0 +1,10 @@
+<main id="main" webc:root="override" class="main">
+  <slot></slot>
+</main>
+
+<style webc:scoped>
+	:host div > *+* {
+    display: block;
+		margin-top: calc(var(--margin)/2);
+	}
+</style>

@@ -1,0 +1,14 @@
+<footer webc:root="override">
+	<p>
+		<c-copyright></c-copyright>
+	</p>
+	<c-theme></c-theme>
+</footer>
+
+<style webc:scoped>
+	:host {
+		display: block;
+		padding: var(--space);
+		background-color: var(--foreground-100);
+	}
+</style>

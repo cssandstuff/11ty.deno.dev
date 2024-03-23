@@ -1,0 +1,109 @@
+/* @import "reset.css" layer(reset);
+@import "root.css" layer(root); */
+
+@layer reset{
+  * {
+    box-sizing: border-box;
+  }
+  
+  html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  body {
+    font-size: 1em;
+    background-color: var(--background);
+    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+    color: var(--foreground);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    margin: 0;
+    padding:0;
+    grid-template-areas: 
+      "a"
+      "b"
+      "c";
+    height: 100%;
+  }
+  
+  main{
+    max-width: 56ch;
+    padding: var(--space) calc(var(--space) * 2)
+  }
+  
+  h1, h2, h3, h4, h5, h6, p { 
+    margin: 0; 
+    line-height: 1;
+  }
+  
+  p{
+    line-height: 1.2;
+  }
+  
+  a{
+    text-underline-offset: 0.3em;
+    text-decoration-color: var(--underline-resting);
+  }
+  
+  a:hover{
+    text-decoration-color: var(--linkColor);
+  }
+  
+  a:active, a:link{
+    color: var(--linkColor);
+  }
+  
+  a:visited{
+    color: var(--linkColor);
+  }
+}
+
+/* 12 bit rainbow */
+:root{
+	--mauve: #817;
+	--red: #a35;
+	--plum: #c66;
+	--orange: #e94;
+	--yellow: #ed0;
+	--lime: #9d5;
+	--mint: #4d8;
+	--teal: #2cb;
+	--cyan: #0cb;
+	--blue: #09c;
+	--royal: #36b;
+	--purple: #639;
+	--lightgrey: #d3d3d3;
+	--darkgrey: #444;
+	--grey: #858585;
+	--black: #111;
+	--white: #fff;
+	--space: 0.8em;
+	--space-2: calc(var(--space) * 2);
+	--space-3: calc(var(--space) * 3);
+	--margin: var(--space-2);
+
+	--foreground: var(--black);
+	--background: var(--white);
+	--linkColor: var(--blue);
+	--linkVisited: var(--royal);
+	--underline-resting: rgba(0, 153, 204, 0.203);
+
+	--foreground-100: var(--lightgrey)
+}
+
+.isDark{
+  --background: var(--black);
+  --foreground: var(--white);
+  --foreground-100: var(--darkgrey);
+  --linkColor: var(--teal);
+  color-scheme: dark;
+}
+
+/* temporary */
+
+#main div > *+* {
+  display: block;
+  margin-top: calc(var(--margin)/2);
+}

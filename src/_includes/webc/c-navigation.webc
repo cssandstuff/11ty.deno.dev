@@ -1,0 +1,60 @@
+<script webc:keep>
+	document.body.addEventListener('htmx:afterSwap', function(evt) {
+		let currentSlug = window.location.pathname;
+		let navLinks = document.querySelectorAll('#nav a');
+
+
+		navLinks.forEach(function(link) {
+			let linkSlug = link.getAttribute('href');
+			if (currentSlug === linkSlug) {
+				link.parentNode.classList.add('selected');
+			}else{
+				link.parentNode.classList.remove('selected');
+			}
+		});
+	});
+</script>
+
+<nav id="nav" class="nav" webc:root="override">
+<ul>
+<script webc:type="js" webc:is="template">
+	$data.collections.all.slice(0).reverse()
+		.map((item) => {
+		if(item.url){
+			return(
+			`<li class="${$data.title==item.data.title ? `selected` : ''}">
+				<a hx-push-url="${item.url}" hx-get="${item.url}slim" href="${item.url}" preload="preload:init">${item.data.title}</a>
+			</li>`)
+		}}
+		).join("");
+</script>
+</ul>
+</nav>
+
+<style webc:scoped>
+	:host{
+		margin-bottom: var(--space-3);
+	}
+	:host ul{
+		display: flex;
+		gap: var(--space);
+		margin: 0;
+		padding: 0
+	}
+	:host ul li{
+		list-style: none;
+		padding: 0; 
+		margin: 0;
+	}
+	.selected a{
+		text-decoration-thickness: 2px;
+		text-decoration-color: var(--linkColor);
+	}
+	:host ul li:first-child{
+		margin-left: calc( var(--space)/ 3 * -1)
+	}
+	:host ul li a{
+		padding: var(--space) calc( var(--space)/ 2);
+		display: block;
+	}
+	</style>

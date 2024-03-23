@@ -1,0 +1,51 @@
+<template>
+	<label>darkmode <input type="checkbox" /></label>
+</template>
+
+<script>
+	class cTheme extends HTMLElement {
+		connectedCallback() {
+			const template = this.querySelector("template");
+
+			// Swap out the template with its contents so they become visible
+		  if(template!==null) template.replaceWith(template.content);
+
+			let inputToggle = this.querySelector("input");
+			let darkMode = window.localStorage.getItem("darkMode");
+			
+			if(!darkMode) {
+				darkMode =  false
+				inputToggle.checked = false;
+				
+			}else if(darkMode==="true") {
+				darkMode =  true;
+				inputToggle.checked = true;
+			}
+
+			inputToggle.addEventListener("click", () => {
+				window.localStorage.setItem('darkMode', inputToggle.checked);
+				inputToggle.checked ? document.documentElement.classList.add('isDark') : document.documentElement.classList.remove('isDark');
+			})
+
+		}
+	}
+
+	customElements.get('c-theme') || customElements.define('c-theme', cTheme);
+</script>
+
+<style>
+	/* might want this scoped or pass props to components or some other solution but for now this works */
+	c-theme:has(input:checked)::after{
+		content: 'is dark!'
+	}
+
+
+	/* body:has(c-theme input:checked){
+		--background: var(--black);
+		--foreground: var(--white);
+		--foreground-100: var(--darkgrey);
+		--linkColor: var(--teal);
+		color-scheme: dark;
+	} */
+
+</style>

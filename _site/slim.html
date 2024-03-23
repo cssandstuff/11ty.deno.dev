@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="content"><p>WebC is an awesome way to get started with web components and this is a quick starter site created for testing.
+webC starter
+Home</p>
+<main id="main" class="main whxxbttas">
+  YO!
+</main>
+<button hx-get="/about/slim" hx-trigger="click" hx-target="#content" hx-swap="outerHTML" hx-push-url="/about/">
+    Go to Abouts
+</button>
+<button hx-get="/about/slim" hx-trigger="click" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">
+    Go to About same push url
+</button>
+<button hx-get="/about/slim" hx-trigger="click" hx-target="#content" hx-swap="outerHTML" hx-push-url="false">
+    Go to About no push
+</button>
+<a href="/about/">About plain</a>
+<a href="/about/slim" hx-push-url="/about/">About push slim</a>
+<a href="/about/slim" hx-push-url="/about/slim">About same</a>
+<a hx-get="/about/slim" href="/about/" hx-push-url="/about/">About get slim</a>
+</div>
+  </body>
+</html>

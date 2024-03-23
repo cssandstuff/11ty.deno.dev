@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>{{title}}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Starter site using WebC and 11ty">
+
+		<link rel="stylesheet" href="/css/style.css" webc:keep />
+		<script webc:keep>
+			let darkMode = window.localStorage.getItem("darkMode");
+			let modeStyles;
+			if(darkMode==="true") {
+				document.documentElement.classList.add('isDark')
+			}
+		</script>
+		
+		<style>{% getBundle "css" %}</style>
+
+		<script webc:keep src="https://unpkg.com/htmx.org@latest"></script>
+		<script webc:keep src="https://unpkg.com/htmx.org@1.9.11/dist/ext/preload.js"></script>
+	</head>
+	<body hx-ext="preload" hx-boost="true" hx-target="#content" hx-select="#content" hx-swap="outerHTML">
+
+		{% renderTemplate "webc" %}
+		<c-heading @level="1">
+			WebC starter site
+		</c-heading>
+		{% endrenderTemplate %}
+		<main id="main">
+			{% include '_navigation.njk' %}
+			<div id="content">{{ content | safe }}</div>
+		</main>
+		{% renderTemplate "webc" %}<c-footer></c-footer>{% endrenderTemplate %}
+		<script>{% getBundle "js" %}</script>
+	</body>
+	</html>
