@@ -6,5 +6,6 @@
   </head>
   <body>
     <div id="content">{{ content | safe }}</div>
+    <div id="styleswap" hx-swap-oob="true"><style>{% getBundle "css" %}</style></div>
   </body>
 </html>

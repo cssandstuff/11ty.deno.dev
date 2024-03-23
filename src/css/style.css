@@ -102,7 +102,9 @@
 }
 
 /* temporary */
-
+#styleswap{
+  display: none;
+}
 #main div > *+* {
   display: block;
   margin-top: calc(var(--margin)/2);
