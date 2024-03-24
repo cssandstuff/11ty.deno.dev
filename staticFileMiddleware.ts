@@ -10,16 +10,14 @@ async function pathExists(path: string) {
     const stats = await Deno.lstat(path);
     console.log("stats:");
     console.log(stats);
-    return stats.size > 0 && stats;
-
-    
+    return (stats.isDirectory || stats.isFile) && stats;
   } catch (e) {
     if (e && e instanceof Deno.errors.NotFound) {
-      console.log("not found")
+      console.log("not found");
       return false;
       //req.respond({ body: "Not-found-o", status: 404})
     } else {
-      console.log("lonely")
+      console.log("lonely");
       //return false;
       //throw e;
       //req.respond({ body: "Crashed-o", status: 500})
@@ -28,7 +26,7 @@ async function pathExists(path: string) {
 }
 
 function hasTrailingSlash(str: string) {
-  return str.endsWith('/');
+  return str.endsWith("/");
 }
 
 export const staticFileMiddleware = async (ctx: Context, next: Function) => {
@@ -48,13 +46,12 @@ export const staticFileMiddleware = async (ctx: Context, next: Function) => {
       root: `${Deno.cwd()}/_site`,
     });
   } else if (pathType?.isDirectory) {
-
     // dont want urls without trailing slashes thanks.
-    if(!hasTrailingSlash(ctx.request.url.pathname)){
+    if (!hasTrailingSlash(ctx.request.url.pathname)) {
       return await next();
     }
 
-    const withExtension =  `${ctx.request.url.pathname}index.html`;
+    const withExtension = `${ctx.request.url.pathname}index.html`;
 
     console.log(withExtension);
 
