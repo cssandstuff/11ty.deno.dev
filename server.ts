@@ -21,7 +21,7 @@ app.use((ctx) => {
 });
 
 app.addEventListener("listen", () => {
-  console.log("Server started");
+  console.log("💖Server started");
 });
 
 await app.listen({ port: 8000 });

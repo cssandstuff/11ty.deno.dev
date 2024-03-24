@@ -4,12 +4,12 @@ async function pathExists(path: string) {
   try {
     // could check for path with extension
     // const withExtension = `${path}.html`;
-    console.log("path exists function");
-    console.log(path);
+    // console.log("path exists function");
+    // console.log(path);
 
     const stats = await Deno.lstat(path);
-    console.log("stats:");
-    console.log(stats);
+    // console.log("stats:");
+    // console.log(stats);
     return (stats.isDirectory || stats.isFile) && stats;
   } catch (e) {
     if (e && e instanceof Deno.errors.NotFound) {
@@ -31,15 +31,15 @@ function hasTrailingSlash(str: string) {
 
 export const staticFileMiddleware = async (ctx: Context, next: Function) => {
   const path = `${Deno.cwd()}/_site${ctx.request.url.pathname}`;
-  console.log("PATH");
-  console.log(path);
+  // console.log("PATH");
+  // console.log(path);
 
   const pathType = (await pathExists(path)) as unknown as Deno.FileInfo;
 
-  console.log("EXISTS?");
-  console.log(pathType);
-  console.log(pathType.isFile);
-  console.log(pathType.isDirectory);
+  // console.log("EXISTS?");
+  // console.log(pathType);
+  // console.log(pathType.isFile);
+  // console.log(pathType.isDirectory);
 
   if (pathType?.isFile) {
     await send(ctx, ctx.request.url.pathname, {
