@@ -25,10 +25,12 @@ function hasTrailingSlash(str: string) {
 
 export const staticFileMiddleware = async (ctx: Context, next: Function) => {
   const path = `${Deno.cwd()}/_site${ctx.request.url.pathname}`;
+  console.log("PATH");
+  console.log(path);
 
   const pathType = (await pathExists(path)) as unknown as Deno.FileInfo;
 
-  console.log("MOO");
+  console.log("EXISTS?");
   console.log(pathType);
   console.log(pathType.isFile);
   console.log(pathType.isDirectory);
