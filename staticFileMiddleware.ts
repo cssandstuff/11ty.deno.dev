@@ -28,10 +28,10 @@ export const staticFileMiddleware = async (ctx: Context, next: Function) => {
 
   const pathType = (await pathExists(path)) as unknown as Deno.FileInfo;
 
-  // console.log("MOO");
-  // console.log(pathType);
-  // console.log(pathType.isFile);
-  // console.log(pathType.isDirectory);
+  console.log("MOO");
+  console.log(pathType);
+  console.log(pathType.isFile);
+  console.log(pathType.isDirectory);
 
   if (pathType?.isFile) {
     await send(ctx, ctx.request.url.pathname, {
@@ -45,6 +45,8 @@ export const staticFileMiddleware = async (ctx: Context, next: Function) => {
     }
 
     const withExtension =  `${ctx.request.url.pathname}index.html`;
+
+    console.log(withExtension);
 
     await send(ctx, withExtension, {
       root: `${Deno.cwd()}/_site`,

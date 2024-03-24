@@ -5,12 +5,12 @@ const app = new Application();
 
 const router = new Router();
 router
-  .get("/", (ctx) => {
-    ctx.response.body = "Home";
-  })
-  .get("/about", (ctx) => {
-    ctx.response.body = "About";
-  });
+  // .get("/", (ctx) => {
+  //   ctx.response.body = "Home";
+  // })
+  // .get("/about", (ctx) => {
+  //   ctx.response.body = "About";
+  // });
 
 app.use(staticFileMiddleware);
 app.use(router.routes());
