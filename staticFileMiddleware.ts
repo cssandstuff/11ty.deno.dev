@@ -4,14 +4,22 @@ async function pathExists(path: string) {
   try {
     // could check for path with extension
     // const withExtension = `${path}.html`;
-    let stats = await Deno.lstat(path);
+    console.log("path exists function");
+    console.log(path);
 
+    const stats = await Deno.lstat(path);
+    console.log("stats:");
+    console.log(stats);
     return stats.size > 0 && stats;
+
+    
   } catch (e) {
     if (e && e instanceof Deno.errors.NotFound) {
+      console.log("not found")
       return false;
       //req.respond({ body: "Not-found-o", status: 404})
     } else {
+      console.log("lonely")
       //return false;
       //throw e;
       //req.respond({ body: "Crashed-o", status: 500})
