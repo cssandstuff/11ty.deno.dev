@@ -1,0 +1,1 @@
+<button hx-trigger="click" hx-post="/likes.html" hx-target="#likes" hx-select=".content" hx-swap="innerHTML">Like! <output id="likes" hx-trigger="load" hx-get="/likes.html"></output></button>
