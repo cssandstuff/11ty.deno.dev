@@ -13,7 +13,7 @@ async function pathExists(path: string) {
     return (stats.isDirectory || stats.isFile) && stats;
   } catch (e) {
     if (e && e instanceof Deno.errors.NotFound) {
-      console.log("not found");
+      console.log("no file or folder routes");
       return false;
       //req.respond({ body: "Not-found-o", status: 404})
     } else {
@@ -53,7 +53,7 @@ export const staticFileMiddleware = async (ctx: Context, next: Function) => {
 
     const withExtension = `${ctx.request.url.pathname}index.html`;
 
-    console.log(withExtension);
+    // console.log(withExtension);
 
     await send(ctx, withExtension, {
       root: `${Deno.cwd()}/_site`,

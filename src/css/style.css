@@ -20,7 +20,7 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     margin: 0;
-    padding:0;
+    padding: 0;
     grid-template-areas: 
       "a"
       "b"

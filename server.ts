@@ -1,16 +1,34 @@
-import { Application, Router, Response, Status } from "https://deno.land/x/oak@14.2.0/mod.ts";
-import { staticFileMiddleware } from "./staticFileMiddleware.ts";
+import { oakAdapter, etaEngine, viewEngine, Application, Context, Router, staticFileMiddleware, Status } from "./deps.ts";
+import { getLikes, updateLikes } from "./service.ts";
 
 const app = new Application();
 
+app.use(
+  viewEngine(oakAdapter, etaEngine, {
+    viewRoot: "./src/views"
+  })
+);
+
+async function updateLikesHandler(ctx: Context) {
+  const likes = await updateLikes();
+  // console.log("likes:");
+  // console.log(likes);
+  ctx.render("likes.html", {likes: likes});
+}
+
+async function getLikesHandler(ctx: Context) {
+  const likes = await getLikes();
+  ctx.render("likes.html", {likes: likes});
+}
+
+
+
 const router = new Router();
 router
-  // .get("/", (ctx) => {
-  //   ctx.response.body = "Home";
-  // })
-  // .get("/about", (ctx) => {
-  //   ctx.response.body = "About";
-  // });
+  .get("/likes.html", getLikesHandler)
+  .post("/likes.html", updateLikesHandler)
+  //.get("/", ctx => ctx.render("index.html"))
+
 
 app.use(staticFileMiddleware);
 app.use(router.routes());
