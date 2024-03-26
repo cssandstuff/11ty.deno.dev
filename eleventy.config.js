@@ -1,5 +1,4 @@
-// ELEVENTY 3!!!
-
+// Eleventy 3!
 import pluginWebc from "npm:@11ty/eleventy-plugin-webc";
 import { EleventyRenderPlugin } from "npm:@11ty/eleventy@canary";
 
