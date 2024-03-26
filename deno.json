@@ -3,7 +3,7 @@
     "clean": "rm -rf _site",
     "generate": "deno task clean && deno run --allow-read --allow-write --allow-env --allow-sys npm:@11ty/eleventy@canary",
     "generateSlim": "LAYOUT=slim deno run --allow-read --allow-write --allow-env --allow-sys npm:@11ty/eleventy@canary",
-    "dev": "deno task generate && deno task generateSlim && deno run --watch --allow-net --allow-read --unstable server.ts",
+    "dev": "deno task generate && deno task generateSlim && deno run --watch --allow-net --allow-read --unstable-kv server/main.ts",
     "prod": "deno task generate && deno task generateSlim"
   },
   "imports": {
