@@ -15,10 +15,33 @@ type Device = {
   }
 }
 
-export async function getLikes() {
+async function checkAlreadyLiked (ctx: Context){
   const currentLikes = await kv.get(["likes"]) as Like;
-  const likesValue = currentLikes?.value?.likes ?? 0;
-  return (likesValue);
+  let likes = currentLikes?.value?.likes ?? 0;
+  
+  let alreadyLiked = false;
+  const device = ctx.request.ip+ctx.request.userAgent.ua
+  const lastDevice = await getLastDevice();
+  
+
+  if(device === lastDevice){
+    alreadyLiked = true;
+  }
+
+  return {likes, alreadyLiked, device}
+}
+
+export async function getLikes(ctx: Context) {
+  console.log("here");
+
+
+  const checkLiked = await checkAlreadyLiked(ctx);
+  const likes = checkLiked.likes;
+  const alreadyLiked = checkLiked.alreadyLiked;
+
+  console.log(likes, alreadyLiked);
+
+  return {likes, alreadyLiked};
 }
 
 export async function getLastDevice() {
@@ -28,16 +51,19 @@ export async function getLastDevice() {
 }
 
 export async function updateLikes(ctx: Context) {
-  let likes = await getLikes() as unknown as number ?? 0;
-  likes = likes+1;
-  const device = ctx.request.ip+ctx.request.userAgent.ua
-  const lastDevice = await getLastDevice();
 
-  if(device !== lastDevice){
-    kv.set(["likes"], {"likes": likes, "device" :device });
-  }else{
+  const checkLiked = await checkAlreadyLiked(ctx);
+  let likes = checkLiked.likes;
+  const device = checkLiked.device;
+
+
+  if(checkLiked.alreadyLiked===true){
     console.log("nah bro, same!");
-    return likes-1;
+    likes = likes-1;
+  }else{
+
+    likes = likes+1;
+    kv.set(["likes"], {"likes": likes, "device": device });
   }
 
   return likes

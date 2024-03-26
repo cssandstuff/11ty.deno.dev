@@ -19,7 +19,7 @@ function hasTrailingSlash(str: string) {
   return str.endsWith("/");
 }
 
-export const staicFileMiddleMan = async (ctx: Context, next: () => void) => {
+export const staticFileRoutes = async (ctx: Context, next: () => void) => {
   
   const path = `${Deno.cwd()}/_site${ctx.request.url.pathname}`;
   const pathType = (await pathExists(path)) as unknown as Deno.FileInfo;

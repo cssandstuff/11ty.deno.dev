@@ -1,1 +1,13 @@
-<button hx-trigger="click" hx-post="/likes.html" hx-target="#likes" hx-select=".content" hx-swap="innerHTML">Like! <output id="likes" hx-trigger="load" hx-get="/likes.html"></output></button>
+<div id="likeme" webc:root="override">
+<button hx-target="#likeme" hx-trigger="click" hx-post="/likes.html" hx-select="#likeme" hx-swap="outerHTML">Like!</button>
+<output id="likes" hx-target="#likeme" hx-select="#likeme" hx-trigger="load" hx-get="/likes.html"></output>
+</div>
+
+<style>
+	#likeme {
+    display: inline-block
+  }
+  #likeme.done {
+    background: pink
+  }
+</style>

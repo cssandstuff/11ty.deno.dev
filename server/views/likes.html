@@ -1,1 +1,4 @@
-<span class="content"><%= it.likes %></span>
+<div id="likeme">
+<button hx-target="#likeme" hx-trigger="click" hx-post="/likes.html" hx-select="#likeme" hx-swap="outerHTML">Like!</button>
+<output id="likes"><%= it.likes %></output>
+</div>
