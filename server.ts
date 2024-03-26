@@ -1,4 +1,4 @@
-import { oakAdapter, etaEngine, viewEngine, Application, Context, Router, staticFileMiddleware, Status } from "./deps.ts";
+import { oakAdapter, etaEngine, viewEngine, Application, Router, staticFileMiddleware, Status } from "./deps.ts";
 import { getLikes, updateLikes } from "./service.ts";
 
 const app = new Application();
@@ -9,25 +9,22 @@ app.use(
   })
 );
 
-async function updateLikesHandler(ctx: Context) {
-  const likes = await updateLikes();
-  // console.log("likes:");
-  // console.log(likes);
+// deno-lint-ignore no-explicit-any
+async function updateLikesHandler(ctx: any) {
+  const likes = await updateLikes(ctx);
   ctx.render("likes.html", {likes: likes});
 }
 
-async function getLikesHandler(ctx: Context) {
+// deno-lint-ignore no-explicit-any
+async function getLikesHandler(ctx: any) {
   const likes = await getLikes();
   ctx.render("likes.html", {likes: likes});
 }
-
-
 
 const router = new Router();
 router
   .get("/likes.html", getLikesHandler)
   .post("/likes.html", updateLikesHandler)
-  //.get("/", ctx => ctx.render("index.html"))
 
 
 app.use(staticFileMiddleware);
