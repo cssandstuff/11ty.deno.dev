@@ -1909,6 +1909,8 @@
     "https://deno.land/x/view_engine@v10.6.0/lib/viewEngine.ts": "330c5db401ac28995d663514969a07dd4c4cd07ff5a0c7386fe34d4b44a79cfc",
     "https://deno.land/x/view_engine@v10.6.0/lib/viewEngine.type.ts": "764046c9faadcd2794e3b2dcda5e08caacd96a2e7bb26766e7d18993f8c19795",
     "https://deno.land/x/view_engine@v10.6.0/mod.ts": "d9db64850f6f6b75841a7eb545931f1f8c2fbc5ff0414a2ee625ef2e151eca1c",
+    "https://deno.land/x/virtualstorage@0.1.0/mod.ts": "9449c2f86fab7d09fd7b76446c7852515bbe512cca925a93793e0361d1e266d4",
+    "https://deno.land/x/virtualstorage@0.1.0/virtualStorage.ts": "602965ab9985f0e330587db8b60c2639611622cfd608d1964ade58ed746db09d",
     "https://dev.jspm.io/handlebars@4.7.6": "26ba31abe93897a86390da422b3488a253fc7976ae6b7454961842e3a7cf741a",
     "https://dev.jspm.io/npm:@jspm/core@2.0.1/_/0545670c.js": "468e254a0e5f7801333f217fcee046141186bd0a960018c893d73910bd754b71",
     "https://dev.jspm.io/npm:@jspm/core@2.0.1/_/3fe460d2.js": "991599d7a4ccc93f3dc0808aa706e713fd80a80fc8d21ec1fd28a96832030572",

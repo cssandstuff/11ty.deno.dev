@@ -1,6 +1,7 @@
-import { oakAdapter, etaEngine, viewEngine, Application, Router, staticFileRoutes, Status } from "./deps.ts";
+import { installGlobals, oakAdapter, etaEngine, viewEngine, Application, Router, staticFileRoutes, Status } from "./deps.ts";
 import { getLikes, updateLikes } from "./service.ts";
 
+installGlobals();
 const app = new Application();
 
 app.use(
