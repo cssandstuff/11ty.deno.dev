@@ -41,6 +41,12 @@
 
 	:host input{
 		appearance: none;
+		position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    padding: 0;
+    margin: 0;
 	}
 
 	:host .switch{
@@ -48,7 +54,25 @@
 		border-radius: 99em;
 		overflow: hidden;
 		display: inline-block;
-		width: 3em;
+		width: 2.5em;
+		height: 1em;
+		position: relative;
+		margin-left: 0.3em;
+		margin-bottom: -0.2em;
+	}
+
+	:host .switch::before{
+		content: "";
+		background-color: rgba(255,255,255, 0.5);
+		position: absolute;
+		left: 0; top: 0;
+		height: 1em; width: 1em;
+		border-radius: 50%;
+		transition: 0.3s cubic-bezier(0.22, 1.25, 0.74, 1.47);
+	}
+
+	:host .switch:has(input:checked)::before{
+		transform: translateX(1.5em);
 	}
 
 	/* body:has(c-theme input:checked){

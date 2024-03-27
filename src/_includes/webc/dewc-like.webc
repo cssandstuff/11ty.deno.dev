@@ -1,15 +1,53 @@
 <div id="likeme" webc:root="override">
-<button data-hx-target="#likeme" data-hx-trigger="click" data-hx-post="/likes.html" data-hx-select="#likeme" data-hx-swap="outerHTML">Like!</button>
-<output id="likes" data-hx-target="#likeme" data-hx-select="#likeme" data-hx-trigger="load" data-hx-get="/likes.html"></output>
+<button>Like!</button>
+<output id="likes" 
+  data-hx-swap="outerHTML swap:0.3s"
+  data-hx-indicator="#likeme" 
+  data-hx-target="#likeme" 
+  data-hx-select="#likeme" 
+  data-hx-trigger="load" 
+  data-hx-get="/likes.html"></output>
 </div>
 
 <style>
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+      }
+    100% {
+      opacity: 1;
+    }
+  }
+
 	#likeme {
     display: inline-block;
     float: right;
+    position: relative;
+  }
+
+  #likeme > :is(button, output){
+    opacity: 0;
+  }
+
+  #likeme.htmx-request::before,
+  #likeme.htmx-swapping::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: red;
+    transition: 0.3s opacity;
+  }
+
+  #likeme.htmx-swapping::before{
+    opacity: 0;
   }
 
   #likeme.done {
     background: pink
+  }
+
+  .fadeIn > :is(button, output){
+    animation: fadeIn 0.3s both;
   }
 </style>

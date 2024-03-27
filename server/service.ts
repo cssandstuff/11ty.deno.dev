@@ -4,23 +4,31 @@ const kv = await Deno.openKv();
 //await kv.delete(["likes"]);
 //localStorage.clear();
 
-type Like = {
+type Likes = {
   value: {
     likes: number;
   }
 }
 
+type UniqueVoters = {
+  value: {
+    device: string;
+  }
+}
+
 async function checkAlreadyLiked (ctx: Context){
-  const currentLikes = await kv.get(["likes"]) as Like;
+  const currentLikes = await kv.get(["likes"]) as Likes;
   const likes = currentLikes?.value?.likes ?? 0;
   
   let alreadyLiked = false;
   const device = ctx.request.ip+ctx.request.userAgent.ua
-  console.log(localStorage.getItem(device));
-  console.log(localStorage);
+  // console.log(localStorage.getItem(device));
+  // console.log(localStorage);
 
-  const locallyLiked = localStorage.getItem(device);
-  if(locallyLiked === "alreadyLiked"){
+  const myDevice = await kv.get([device]) as UniqueVoters ?? "" //localStorage.getItem(device);
+  //console.log(myDevice);
+
+  if(myDevice?.value?.device === "voted"){
     alreadyLiked = true;
   }
 
@@ -57,7 +65,9 @@ export async function updateLikes(ctx: Context) {
 
     likes = likes+1;
     kv.set(["likes"], {"likes": likes });
-    localStorage.setItem(device, "alreadyLiked");
+    kv.set([device], {device: "voted" });
+
+    //localStorage.setItem(device, "alreadyLiked");
 
   }
 
