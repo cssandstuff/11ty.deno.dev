@@ -16,10 +16,10 @@ async function checkAlreadyLiked (ctx: Context){
   
   let alreadyLiked = false;
   const device = ctx.request.ip+ctx.request.userAgent.ua
-  console.log(sessionStorage.getItem(device));
-  console.log(sessionStorage);
+  console.log(localStorage.getItem(device));
+  console.log(localStorage);
 
-  const locallyLiked = sessionStorage.getItem(device);
+  const locallyLiked = localStorage.getItem(device);
   if(locallyLiked === "alreadyLiked"){
     alreadyLiked = true;
   }
@@ -57,7 +57,7 @@ export async function updateLikes(ctx: Context) {
 
     likes = likes+1;
     kv.set(["likes"], {"likes": likes });
-    sessionStorage.setItem(device, "alreadyLiked");
+    localStorage.setItem(device, "alreadyLiked");
 
   }
 
