@@ -19,12 +19,13 @@
 
 		<script webc:keep src="https://unpkg.com/htmx.org@latest"></script>
 		<script webc:keep src="https://unpkg.com/htmx.org@1.9.11/dist/ext/preload.js"></script>
+		<style id="styleswap"></style>
 	</head>
 	<body  data-hx-ext="preload" data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML">
-
+		<h1 aria-live="polite" class="visually-hidden" id="mainHeading">{{title}}</h1>
 		{% renderTemplate "webc" %}
-		<c-heading @level="1">
-			11ty.deno.dev
+		<c-heading>
+			<h2>11ty.deno.dev</h2>
 			<dewc-like></dewc-like>
 		</c-heading>
 		{% endrenderTemplate %}
@@ -35,6 +36,6 @@
 		</main>
 		{% renderTemplate "webc" %}<c-footer></c-footer>{% endrenderTemplate %}
 		<script>{% getBundle "js" %}</script>
-		<div id="styleswap"></div>
 	</body>
+
 	</html>

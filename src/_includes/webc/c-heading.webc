@@ -5,20 +5,15 @@
 </script> -->
 
 <!--- could also be done like this --->
-<h1 webc:root="override" class="h1"><slot></slot></h1>
+<header webc:root="override"><slot></slot></header>
 
 <style webc:scoped>
 	:host{
-		display: block;
-	}
-
-	:host:is(h1){
+		display: flex;
 		padding: var(--space);
+		justify-content: space-between;
 		background-color: var(--yellow);
 		color: var(--black);
 	}
 
-	:host *+* {
-		margin-top: calc(var(--margin)/2);
-	}
 </style>
