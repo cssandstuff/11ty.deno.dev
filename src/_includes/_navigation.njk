@@ -51,13 +51,14 @@
 <nav id="nav" class="dewc-nav">
   <ul role="list">
     <li>
-      <a hx-push-url="/" hx-get="/slim.html" {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
+      <a data-hx-swap="innerHTML" data-hx-push-url="/" data-hx-get="/slim.html" {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
     </li>
 
     {% for link in collections.pages %}
       <li>
         <a
-        hx-push-url="{{link.url}}" hx-get="{{link.url}}slim.html"
+        data-hx-swap="innerHTML"
+        data-hx-push-url="{{link.url}}" data-hx-get="{{link.url}}slim.html"
         {% if currentUrl === link.url %}aria-current="page"{% endif %}
         href="{{ link.url }}">
           {{ link.data.title }}

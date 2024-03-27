@@ -7,8 +7,10 @@
 
 <style webc:scoped>
 	:host {
-		display: block;
 		padding: var(--space);
 		background-color: var(--foreground-100);
+		display: flex;
+    justify-content: space-between;
+		align-items: baseline;
 	}
 </style>

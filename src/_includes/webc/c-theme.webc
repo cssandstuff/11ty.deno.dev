@@ -1,5 +1,5 @@
 <template>
-	<label>darkmode <input type="checkbox" /></label>
+	<label>darkmode <div class="switch"><input type="checkbox" /></div></label>
 </template>
 
 <script>
@@ -33,12 +33,23 @@
 	customElements.get('c-theme') || customElements.define('c-theme', cTheme);
 </script>
 
-<style>
+<style webc:scoped>
 	/* might want this scoped or pass props to components or some other solution but for now this works */
 	c-theme:has(input:checked)::after{
 		content: 'is dark!'
 	}
 
+	:host input{
+		appearance: none;
+	}
+
+	:host .switch{
+		background-color: var(--darkgrey);
+		border-radius: 99em;
+		overflow: hidden;
+		display: inline-block;
+		width: 3em;
+	}
 
 	/* body:has(c-theme input:checked){
 		--background: var(--black);

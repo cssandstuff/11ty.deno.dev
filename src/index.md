@@ -8,32 +8,32 @@ WebC is an awesome way to get started with web components and this is a quick st
 
 {% renderTemplate "webc" %}
 <c-hello>YO!</c-hello>
-<button hx-get="/about/slim.html"
-    hx-trigger="click"
-    hx-target="#content"
-    hx-swap="outerHTML"
-    hx-push-url="/about/"
+<button data-hx-get="/about/slim.html"
+    data-hx-trigger="click"
+    data-hx-target="#content"
+    data-hx-swap="outerHTML"
+    data-hx-push-url="/about/"
 >
     Go to Abouts
 </button>
-<button hx-get="/about/slim.html"
-    hx-trigger="click"
-    hx-target="#content"
-    hx-swap="outerHTML"
-    hx-push-url="true"
+<button data-hx-get="/about/slim.html"
+    data-hx-trigger="click"
+    data-hx-target="#content"
+    data-hx-swap="outerHTML"
+    data-hx-push-url="true"
 >
     Go to About same push url
 </button>
-<button hx-get="/about/slim.html"
-    hx-trigger="click"
-    hx-target="#content"
-    hx-swap="outerHTML"
-    hx-push-url="false"
+<button data-hx-get="/about/slim.html"
+    data-hx-trigger="click"
+    data-hx-target="#content"
+    data-hx-swap="outerHTML"
+    data-hx-push-url="false"
 >
     Go to About no push
 </button>
 <a href="/about/">About plain</a>
-<a href="/about/slim.html" hx-push-url="/about/">About push slim</a>
-<a href="/about/slim.html" hx-push-url="/about/slim">About same</a>
-<a hx-get="/about/slim.html" href="/about/" hx-push-url="/about/">About get slim</a>
+<a href="/about/slim.html" data-hx-push-url="/about/">About push slim</a>
+<a href="/about/slim.html" data-hx-push-url="/about/slim">About same</a>
+<a data-hx-get="/about/slim.html" href="/about/" data-hx-push-url="/about/">About get slim</a>
 {% endrenderTemplate %}

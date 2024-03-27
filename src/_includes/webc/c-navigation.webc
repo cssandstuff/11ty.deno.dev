@@ -23,7 +23,7 @@
 		if(item.url){
 			return(
 			`<li class="${$data.title==item.data.title ? `selected` : ''}">
-				<a hx-push-url="${item.url}" hx-get="${item.url}slim" href="${item.url}" preload="preload:init">${item.data.title}</a>
+				<a data-hx-push-url="${item.url}" data-hx-get="${item.url}slim" href="${item.url}" preload="preload:init">${item.data.title}</a>
 			</li>`)
 		}}
 		).join("");

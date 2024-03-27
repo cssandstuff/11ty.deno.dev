@@ -1907,6 +1907,7 @@
     "https://deno.land/x/view_engine@v10.6.0/lib/engines/eta/eta.engine.ts": "c447e24fad541f7faf145224bbaaa608af8500b94205047f08e7713a6ad42c39",
     "https://deno.land/x/view_engine@v10.6.0/lib/engines/handlebars/handlebars.engine.ts": "5c4596890f6f3d265ad3cd2e39baaa96c37dd4f9312f6fc1a3623109af4c3367",
     "https://deno.land/x/view_engine@v10.6.0/lib/viewEngine.ts": "330c5db401ac28995d663514969a07dd4c4cd07ff5a0c7386fe34d4b44a79cfc",
+    "https://deno.land/x/view_engine@v10.6.0/lib/viewEngine.type.ts": "764046c9faadcd2794e3b2dcda5e08caacd96a2e7bb26766e7d18993f8c19795",
     "https://deno.land/x/view_engine@v10.6.0/mod.ts": "d9db64850f6f6b75841a7eb545931f1f8c2fbc5ff0414a2ee625ef2e151eca1c",
     "https://dev.jspm.io/handlebars@4.7.6": "26ba31abe93897a86390da422b3488a253fc7976ae6b7454961842e3a7cf741a",
     "https://dev.jspm.io/npm:@jspm/core@2.0.1/_/0545670c.js": "468e254a0e5f7801333f217fcee046141186bd0a960018c893d73910bd754b71",

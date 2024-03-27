@@ -19,12 +19,6 @@ async function updateLikesHandler(ctx: any) {
 async function getLikesHandler(ctx: any) {
   const {likes, alreadyLiked} = await getLikes(ctx);
 
-  console.log("likes");
-  console.log(likes);
-  console.log("alreadyLiked");
-  console.log(alreadyLiked);
-
-
   if(alreadyLiked===true){
     ctx.render("likes-done.html", {likes: likes});
   }else{

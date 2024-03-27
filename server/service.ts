@@ -1,7 +1,8 @@
-import { Context } from './deps.ts';
+import { Context } from "./deps.ts";
 
 const kv = await Deno.openKv();
 //await kv.delete(["likes"]);
+//localStorage.clear();
 
 type Like = {
   value: {
@@ -9,52 +10,44 @@ type Like = {
   }
 }
 
-type Device = {
-  value: {
-    device: string;
-  }
-}
-
 async function checkAlreadyLiked (ctx: Context){
   const currentLikes = await kv.get(["likes"]) as Like;
-  let likes = currentLikes?.value?.likes ?? 0;
+  const likes = currentLikes?.value?.likes ?? 0;
   
   let alreadyLiked = false;
   const device = ctx.request.ip+ctx.request.userAgent.ua
-  const lastDevice = await getLastDevice();
-  
+  console.log(sessionStorage.getItem(device));
+  console.log(sessionStorage);
 
-  if(device === lastDevice){
+  const locallyLiked = sessionStorage.getItem(device);
+  if(locallyLiked === "alreadyLiked"){
     alreadyLiked = true;
   }
 
-  return {likes, alreadyLiked, device}
+  return {likes, alreadyLiked}
 }
 
 export async function getLikes(ctx: Context) {
-  console.log("here");
-
 
   const checkLiked = await checkAlreadyLiked(ctx);
   const likes = checkLiked.likes;
   const alreadyLiked = checkLiked.alreadyLiked;
 
-  console.log(likes, alreadyLiked);
-
   return {likes, alreadyLiked};
 }
 
-export async function getLastDevice() {
- const currentLikes = await kv.get(["likes"]) as Device;
- const currentDevice = currentLikes?.value?.device;
- return (currentDevice);
-}
+// export async function getLastDevice() {
+//  const likes = await kv.get(["likes"]) as Like;
+//  const lastDevice = likes?.value?.device;
+//  console.log(likes);
+//  return (lastDevice);
+// }
 
 export async function updateLikes(ctx: Context) {
 
   const checkLiked = await checkAlreadyLiked(ctx);
   let likes = checkLiked.likes;
-  const device = checkLiked.device;
+  const device = ctx.request.ip+ctx.request.userAgent.ua
 
 
   if(checkLiked.alreadyLiked===true){
@@ -63,7 +56,9 @@ export async function updateLikes(ctx: Context) {
   }else{
 
     likes = likes+1;
-    kv.set(["likes"], {"likes": likes, "device": device });
+    kv.set(["likes"], {"likes": likes });
+    sessionStorage.setItem(device, "alreadyLiked");
+
   }
 
   return likes

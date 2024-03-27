@@ -15,22 +15,22 @@
 			}
 		</script>
 		
-		<style id="styles" hx-swap-oob="true">{% getBundle "css" %}</style>
+		<style id="styles" data-hx-swap-oob="true">{% getBundle "css" %}</style>
 
 		<script webc:keep src="https://unpkg.com/htmx.org@latest"></script>
 		<script webc:keep src="https://unpkg.com/htmx.org@1.9.11/dist/ext/preload.js"></script>
 	</head>
-	<body  hx-ext="preload" hx-boost="true" hx-target="#content" hx-select="#content" hx-swap="outerHTML">
+	<body  data-hx-ext="preload" data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML">
 
 		{% renderTemplate "webc" %}
 		<c-heading @level="1">
-			Dewc starter
+			11ty.deno.dev
 			<dewc-like></dewc-like>
 		</c-heading>
 		{% endrenderTemplate %}
 		<main id="main">
 			{% include '_navigation.njk' %}
-			<div id="content">{{ content | safe }}</div>
+			<div id="content" aria-live="polite">{{ content | safe }}</div>
 			
 		</main>
 		{% renderTemplate "webc" %}<c-footer></c-footer>{% endrenderTemplate %}
