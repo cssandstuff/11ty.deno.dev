@@ -56,9 +56,9 @@
     height: 3em;
     transition: 0.3s opacity;
     background: /* highlight */
-    linear-gradient(var(--plum), var(--plum)) 0.4em 0.6em / var(--pixelwidth) 0.4em,
-    linear-gradient(var(--plum), var(--plum)) 0.6em 0.4em / var(--pixelwidth) 0.4em,
-    linear-gradient(var(--plum), var(--plum)) 0.8em 0.4em / var(--pixelwidth) 0.2em,
+    linear-gradient(var(--white), var(--white)) 0.4em 0.6em / var(--pixelwidth) 0.4em,
+    linear-gradient(var(--white), var(--white)) 0.6em 0.4em / var(--pixelwidth) 0.4em,
+    linear-gradient(var(--white), var(--white)) 0.8em 0.4em / var(--pixelwidth) 0.2em,
 
     /* heart */
     linear-gradient(var(--orange), var(--orange)) 0 0.4em / var(--pixelwidth) 1em, 

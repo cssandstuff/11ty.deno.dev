@@ -10,6 +10,7 @@
 <style webc:scoped>
 	:host{
 		display: flex;
+		align-items: center;
 		padding: var(--space);
 		justify-content: space-between;
 		background-color: var(--yellow);
