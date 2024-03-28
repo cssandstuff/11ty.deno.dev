@@ -79,6 +79,7 @@
 	--grey: #858585;
 	--black: #111;
 	--white: #fff;
+  --white-50: rgba(255,255,255,0.5);
 	--space: 0.8em;
 	--space-2: calc(var(--space) * 2);
 	--space-3: calc(var(--space) * 3);

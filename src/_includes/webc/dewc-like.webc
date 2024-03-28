@@ -1,12 +1,12 @@
 <div id="likeme" webc:root="override">
-<button>Like!</button>
-<output id="likes" 
-  data-hx-swap="outerHTML swap:0.3s"
-  data-hx-indicator="#likeme" 
-  data-hx-target="#likeme" 
-  data-hx-select="#likeme" 
-  data-hx-trigger="load" 
-  data-hx-get="/likes.html"></output>
+  <button class="button" aria-label="like"></button>
+  <output id="likes" 
+    data-hx-swap="outerHTML swap:0.3s"
+    data-hx-indicator="#likeme" 
+    data-hx-target="#likeme" 
+    data-hx-select="#likeme" 
+    data-hx-trigger="load" 
+    data-hx-get="/likes.html"></output>
 </div>
 
 <style>
@@ -29,14 +29,54 @@
     opacity: 0;
   }
 
+  #likeme output{
+    position: absolute;
+    color: var(--white);
+    left: 0;
+    width: 100%;
+    display: flex;
+    top: 0;
+    text-align: center;
+    height: 79%;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    font-weight: 400;
+    font-family: monospace;
+  }
+
   #likeme.htmx-request::before,
   #likeme.htmx-swapping::before{
+    --pixelwidth: 0.1em;
+    transform: scale(0.8);
+    font-size: 16px;
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: red;
+    width: 3em;
+    height: 3em;
     transition: 0.3s opacity;
+    background: /* highlight */
+    linear-gradient(var(--plum), var(--plum)) 0.4em 0.6em / var(--pixelwidth) 0.4em,
+    linear-gradient(var(--plum), var(--plum)) 0.6em 0.4em / var(--pixelwidth) 0.4em,
+    linear-gradient(var(--plum), var(--plum)) 0.8em 0.4em / var(--pixelwidth) 0.2em,
+
+    /* heart */
+    linear-gradient(var(--orange), var(--orange)) 0 0.4em / var(--pixelwidth) 1em, 
+    linear-gradient(var(--orange), var(--orange)) 0.2em 0.2em / var(--pixelwidth) 1.4em,
+    linear-gradient(var(--orange), var(--orange)) 0.4em 0em / var(--pixelwidth) 1.8em, 
+    linear-gradient(var(--orange), var(--orange)) 0.6em 0em / var(--pixelwidth) 2em, 
+    linear-gradient(var(--orange), var(--orange)) 0.8em 0em / var(--pixelwidth) 2.2em, 
+    linear-gradient(var(--orange), var(--orange)) 1em 0em / var(--pixelwidth) 2.4em,  
+    linear-gradient(var(--orange), var(--orange)) 1.2em 0.2em / var(--pixelwidth) 2.4em, 
+    linear-gradient(var(--orange), var(--orange)) 1.4em 0.4em / var(--pixelwidth) 2.4em, 
+    linear-gradient(var(--orange), var(--orange)) 1.6em 0.2em / var(--pixelwidth) 2.4em,
+    linear-gradient(var(--orange), var(--orange)) 1.8em 0em / var(--pixelwidth) 2.4em,
+    linear-gradient(var(--orange), var(--orange)) 2em 0em / var(--pixelwidth) 2.2em,
+    linear-gradient(var(--orange), var(--orange)) 2.2em 0em / var(--pixelwidth) 2em,
+    linear-gradient(var(--orange), var(--orange)) 2.4em 0em / var(--pixelwidth) 1.8em,
+    linear-gradient(var(--orange), var(--orange)) 2.6em 0.2em / var(--pixelwidth) 1.4em,
+    linear-gradient(var(--orange), var(--orange)) 2.8em 0.4em / var(--pixelwidth) 1em;
+    background-repeat: no-repeat;
   }
 
   #likeme.htmx-swapping::before{
@@ -44,10 +84,55 @@
   }
 
   #likeme.done {
-    background: pink
+    --plum: var(--lightgrey);
+    --red: var(--grey);
+    --mauve: var(--darkgrey);
+  }
+
+  #likeme.done .button{
+    opacity: 0.6 !important;
+    pointer-events: none;
   }
 
   .fadeIn > :is(button, output){
     animation: fadeIn 0.3s both;
+  }
+
+  #likeme .button{
+    --pixelwidth: 0.25em;
+    font-size: 16px;
+    width: 3em;
+    height: 3em;
+    background: 
+    /* highlight */
+    linear-gradient(var(--plum), var(--plum)) 0.4em 0.6em / var(--pixelwidth) 0.4em,
+    linear-gradient(var(--plum), var(--plum)) 0.6em 0.4em / var(--pixelwidth) 0.4em,
+    linear-gradient(var(--plum), var(--plum)) 0.8em 0.4em / var(--pixelwidth) 0.2em,
+
+    /* heart */
+    linear-gradient(var(--red), var(--mauve)) 0 0.4em / var(--pixelwidth) 1em, 
+    linear-gradient(var(--red), var(--mauve)) 0.2em 0.2em / var(--pixelwidth) 1.4em,
+    linear-gradient(var(--red), var(--mauve)) 0.4em 0em / var(--pixelwidth) 1.8em, 
+    linear-gradient(var(--red), var(--mauve)) 0.6em 0em / var(--pixelwidth) 2em, 
+    linear-gradient(var(--red), var(--mauve)) 0.8em 0em / var(--pixelwidth) 2.2em, 
+    linear-gradient(var(--red), var(--mauve)) 1em 0em / var(--pixelwidth) 2.4em,  
+    linear-gradient(var(--red), var(--mauve)) 1.2em 0.2em / var(--pixelwidth) 2.4em, 
+    linear-gradient(var(--red), var(--mauve)) 1.4em 0.4em / var(--pixelwidth) 2.4em, 
+    linear-gradient(var(--red), var(--mauve)) 1.6em 0.2em / var(--pixelwidth) 2.4em,
+    linear-gradient(var(--red), var(--mauve)) 1.8em 0em / var(--pixelwidth) 2.4em,
+    linear-gradient(var(--red), var(--mauve)) 2em 0em / var(--pixelwidth) 2.2em,
+    linear-gradient(var(--red), var(--mauve)) 2.2em 0em / var(--pixelwidth) 2em,
+    linear-gradient(var(--red), var(--mauve)) 2.4em 0em / var(--pixelwidth) 1.8em,
+    linear-gradient(var(--red), var(--mauve)) 2.6em 0.2em / var(--pixelwidth) 1.4em,
+    linear-gradient(var(--red), var(--mauve)) 2.8em 0.4em / var(--pixelwidth) 1em;
+    
+
+    background-repeat: no-repeat;
+    border: none;
+    transform: scale(0.8);
+    transition: 0.3s all;
+  }
+  #likeme .button:hover{
+    transform: scale(1) rotate(12deg);
   }
 </style>
