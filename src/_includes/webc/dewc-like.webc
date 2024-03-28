@@ -13,9 +13,20 @@
   @keyframes fadeIn {
     0% {
         opacity: 0;
+        transform: translateY(0.5em);
       }
     100% {
       opacity: 0.8;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+        opacity: 0;
+      }
+    100% {
+      opacity: 0.6;
     }
   }
 
@@ -54,17 +65,15 @@
     --pixelwidth: 0.04em;
     --gridwidth: 0.15em;
     margin-left: 0.08em;
+    transform: translateY(0.5em);
     font-size: 16px;
     content: "";
     position: absolute;
     width: 3em;
     height: 3em;
     transition: 0.3s opacity;
+    animation: pulse 1s alternate infinite;
     background: 
-    linear-gradient(var(--plum), var(--plum)) calc(var(--gridwidth) * 2) calc(var(--gridwidth) * 3) / var(--pixelwidth) calc(var(--gridwidth) * 2),
-    linear-gradient(var(--plum), var(--plum)) calc(var(--gridwidth) * 3) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 2),
-    linear-gradient(var(--plum), var(--plum)) calc(var(--gridwidth) * 4) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 1),
-
     /* heart */
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 0) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 5), 
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 1) / var(--pixelwidth) calc(var(--gridwidth) * 7),
