@@ -1,6 +1,7 @@
 {
   "tasks": {
     "clean": "rm -rf _site",
+    "writeKVData": "deno run --allow-write server/write-data.ts",
     "generate": "deno task clean && deno run --allow-read --allow-write --allow-env --allow-sys npm:@11ty/eleventy@canary",
     "generateSlim": "LAYOUT=slim deno run --allow-read --allow-write --allow-env --allow-sys npm:@11ty/eleventy@canary",
     "tscheck": "deno check server/main.ts",

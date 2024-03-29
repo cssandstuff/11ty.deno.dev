@@ -62,18 +62,21 @@
 
   #likeme.htmx-request::before,
   #likeme.htmx-swapping::before{
-    --pixelwidth: 0.04em;
-    --gridwidth: 0.15em;
     margin-left: 0.08em;
-    transform: translateY(0.5em);
+    transform: translateY(0.5em); 
+    z-index: 99;
+    --pixelwidth: 0.05em;
+    --gridwidth: 0.15em;
     font-size: 16px;
+    width: 2.4em;
+    height: 2.4em;
+
     content: "";
     position: absolute;
-    width: 3em;
-    height: 3em;
     transition: 0.3s opacity;
     animation: pulse 1s alternate infinite;
-    background: 
+
+    background:
     /* heart */
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 0) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 5), 
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 1) / var(--pixelwidth) calc(var(--gridwidth) * 7),
@@ -90,17 +93,13 @@
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 12) calc(var(--gridwidth) * 0) / var(--pixelwidth) calc(var(--gridwidth) * 9),
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 13) calc(var(--gridwidth) * 1) / var(--pixelwidth) calc(var(--gridwidth) * 7),
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 14) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 5);
+
     background-repeat: no-repeat;
+    
   }
 
   #likeme.htmx-swapping::before{
     opacity: 0;
-  }
-
-  #likeme.done {
-    --plum: var(--lightgrey);
-    --red: var(--grey);
-    --mauve: var(--darkgrey);
   }
 
   #likeme.done .button{
@@ -111,14 +110,51 @@
     animation: fadeIn 0.3s both;
   }
 
+
   #likeme .button{
     --pixelwidth: 0.2em;
     --gridwidth: 0.15em;
     font-size: 16px;
     width: 2.4em;
     height: 2.4em;
+    cursor: pointer;
+
     background: 
-    /* highlight */
+    /* heart */
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 0) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5), 
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 7) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 2) calc(var(--gridwidth) * 0) / calc(var(--pixelwidth) * 3) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 6) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 7) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 8) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 9) calc(var(--gridwidth) * 0) / calc(var(--pixelwidth) * 3) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 13) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 14) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 13) calc(var(--gridwidth) * 7) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 2) calc(var(--gridwidth) * 8) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 3) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 4) calc(var(--gridwidth) * 10) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 5) calc(var(--gridwidth) * 11) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 6) calc(var(--gridwidth) * 12) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 7) calc(var(--gridwidth) * 13) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 8) calc(var(--gridwidth) * 12) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 9) calc(var(--gridwidth) * 11) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 10) calc(var(--gridwidth) * 10) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 11) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 12) calc(var(--gridwidth) * 8) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1);    
+
+    background-repeat: no-repeat;
+    border: none;
+    transition: 0.3s all;
+  }
+
+  #likeme.done .button {
+    /* --plum: var(--lightgrey);
+    --red: var(--grey);
+    --mauve: var(--darkgrey); */
+
+    background:  /* highlight */
     linear-gradient(var(--plum), var(--plum)) calc(var(--gridwidth) * 2) calc(var(--gridwidth) * 3) / var(--pixelwidth) calc(var(--gridwidth) * 2),
     linear-gradient(var(--plum), var(--plum)) calc(var(--gridwidth) * 3) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 2),
     linear-gradient(var(--plum), var(--plum)) calc(var(--gridwidth) * 4) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 1),
@@ -139,12 +175,11 @@
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 12) calc(var(--gridwidth) * 0) / var(--pixelwidth) calc(var(--gridwidth) * 9),
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 13) calc(var(--gridwidth) * 1) / var(--pixelwidth) calc(var(--gridwidth) * 7),
     linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 14) calc(var(--gridwidth) * 2) / var(--pixelwidth) calc(var(--gridwidth) * 5);
-    
 
     background-repeat: no-repeat;
-    border: none;
-    transition: 0.3s all;
   }
+
+
   #likeme .button:hover{
     transform: scale(1.1) rotate(6deg);
   }
