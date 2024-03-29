@@ -32,6 +32,8 @@ async function checkAlreadyLiked (ctx: Context){
     alreadyLiked = true;
   }
 
+  alreadyLiked = false;
+
   return {likes, alreadyLiked}
 }
 

@@ -6,14 +6,15 @@
     data-hx-target="#likeme" 
     data-hx-select="#likeme" 
     data-hx-trigger="load" 
-    data-hx-get="/likes.html"></output>
+    data-hx-get="/likes.html">
+  </output>
 </div>
 
 <style>
   @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(0.5em);
+        transform: translateY(0.2em);
       }
     100% {
       opacity: 0.8;
@@ -181,6 +182,31 @@
 
 
   #likeme .button:hover{
-    transform: scale(1.1) rotate(6deg);
+    transition: 0.3s all;
+    background: /* heart */
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 0) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5), 
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 7) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 2) calc(var(--gridwidth) * 0) / calc(var(--pixelwidth) * 4) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 6) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 7) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 8) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 9) calc(var(--gridwidth) * 0) / calc(var(--pixelwidth) * 4) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 13) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 14) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 13) calc(var(--gridwidth) * 7) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 2) calc(var(--gridwidth) * 8) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 3) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 4) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 2),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 5) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 3),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 6) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 4),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 7) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 8) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 4),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 9) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 3),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 10) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 2),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 11) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
+    linear-gradient(var(--red), var(--mauve)) calc(var(--gridwidth) * 12) calc(var(--gridwidth) * 8) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1);    
+
+    background-repeat: no-repeat;
   }
 </style>
