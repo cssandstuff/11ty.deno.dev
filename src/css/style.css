@@ -66,6 +66,7 @@
 :root{
 	--mauve: #817;
 	--red: #a35;
+  --red-0: rgba(179,51,58, 0);
 	--plum: #c66;
 	--orange: #e94;
 	--yellow: #ed0;
