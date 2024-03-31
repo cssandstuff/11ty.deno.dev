@@ -1,4 +1,4 @@
-import { Context } from "./deps.ts";
+import { uuid, Context } from "./deps.ts";
 
 const kv = await Deno.openKv();
 //await kv.delete(["likes"]);
@@ -19,22 +19,24 @@ type UniqueVoters = {
 async function checkAlreadyLiked (ctx: Context){
   const currentLikes = await kv.get(["likes"]) as Likes;
   const likes = currentLikes?.value?.likes ?? 0;
-  
+
+  const uniqueness = ctx.request.headers.get('uniqueness') as string
+  const isValid = uuid.v4.validate(uniqueness);
+
   let alreadyLiked = false;
-  const device = ctx.request.ip+ctx.request.userAgent.ua
-  // console.log(localStorage.getItem(device));
-  // console.log(localStorage);
 
-  const myDevice = await kv.get([device]) as UniqueVoters ?? "" //localStorage.getItem(device);
-  //console.log(myDevice);
+  // only do KV stuff if we have a valid and unique idendtifier from the client
+  if(isValid && uniqueness){
+    const myDevice = await kv.get([uniqueness]) as UniqueVoters ?? "" //localStorage.getItem(device);
 
-  if(myDevice?.value?.device === "voted"){
-    alreadyLiked = true;
+    if(myDevice?.value?.device === "voted"){
+      alreadyLiked = true;
+    }
   }
+  
+  //alreadyLiked = false;
 
-  alreadyLiked = false;
-
-  return {likes, alreadyLiked}
+  return {likes, alreadyLiked, uniqueness}
 }
 
 export async function getLikes(ctx: Context) {
@@ -46,30 +48,19 @@ export async function getLikes(ctx: Context) {
   return {likes, alreadyLiked};
 }
 
-// export async function getLastDevice() {
-//  const likes = await kv.get(["likes"]) as Like;
-//  const lastDevice = likes?.value?.device;
-//  console.log(likes);
-//  return (lastDevice);
-// }
 
 export async function updateLikes(ctx: Context) {
 
   const checkLiked = await checkAlreadyLiked(ctx);
   let likes = checkLiked.likes;
-  const device = ctx.request.ip+ctx.request.userAgent.ua
-
 
   if(checkLiked.alreadyLiked===true){
     console.log("nah bro, same!");
     likes = likes-1;
   }else{
-
     likes = likes+1;
     kv.set(["likes"], {"likes": likes });
-    kv.set([device], {device: "voted" });
-
-    //localStorage.setItem(device, "alreadyLiked");
+    kv.set([checkLiked.uniqueness], {device: "voted" });
 
   }
 

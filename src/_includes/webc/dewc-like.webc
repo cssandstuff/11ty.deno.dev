@@ -6,10 +6,22 @@
     data-hx-target="#likeme" 
     data-hx-select="#likeme" 
     data-hx-trigger="load" 
-    data-hx-get="/likes.html">
+    data-hx-get="/likes.html"
+    data-hx-headers="javascript:uniqueness: uniqueId()">
   </output>
 </div>
 
+<script>
+  function uniqueId(){
+    let uniqueId = localStorage.getItem('uniqueId');
+    
+    if(!uniqueId){
+      uniqueId = crypto.randomUUID();
+      localStorage.setItem('uniqueId', uniqueId);
+    }
+    return uniqueId
+  }
+</script>
 <style>
   @keyframes fadeIn {
     0% {
