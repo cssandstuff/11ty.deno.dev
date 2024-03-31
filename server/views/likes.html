@@ -1,4 +1,4 @@
 <div id="likeme" class="fadeIn">
-<button class="button" data-hx-target="#likeme" data-hx-trigger="click" data-hx-post="/likes.html" data-hx-headers="javascript:uniqueness: uniqueId()" data-hx-select="#likeme" data-hx-swap="outerHTML" arial-label="like"></button>
-<output id="likes"><%= it.likes %></output>
+<button id="likesbutton" class="button" data-hx-target="#likeme" data-hx-trigger="click" data-hx-post="/likes.html" data-hx-headers="javascript:uniqueness: uniqueId()" data-hx-select="#likeme" data-hx-swap="outerHTML"><span class="visually-hidden">like this</span></button>
+<output id="likes" aria-labelled-by="likebutton"><%= it.likes %><span class="visually-hidden">likes</span></output>
 </div>

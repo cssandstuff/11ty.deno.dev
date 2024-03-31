@@ -1,4 +1,4 @@
 <div id="likeme" class="fadeIn done">
-<button class="button" disabled></button>
-<output id="likes"><%= it.likes %></output>
+<button id="likebutton" class="button"><span class="visually-hidden">un-like this</span></button>
+<output id="likes" aria-labelled-by="likebutton"><%= it.likes %><span class="visually-hidden">likes</span></output>
 </div>

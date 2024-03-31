@@ -1,6 +1,7 @@
 <div id="likeme" webc:root="override">
-  <button class="button" aria-label="like"></button>
+  <button id="likesbutton" class="button"><span class="visually-hidden">like this</span></button>
   <output id="likes" 
+    aria-labelled-by="likebutton"
     data-hx-swap="outerHTML swap:0.3s"
     data-hx-indicator="#likeme" 
     data-hx-target="#likeme" 
@@ -8,6 +9,7 @@
     data-hx-trigger="load" 
     data-hx-get="/likes.html"
     data-hx-headers="javascript:uniqueness: uniqueId()">
+    <span class="visually-hidden">0 likes</span>
   </output>
 </div>
 
