@@ -55,13 +55,14 @@ export async function updateLikes(ctx: Context) {
   let likes = checkLiked.likes;
 
   if(checkLiked.alreadyLiked===true){
-    console.log("nah bro, same!");
+    console.log("Oh, you are un-liking :(");
     likes = likes-1;
+    kv.set(["likes"], {"likes": likes });
+    kv.set([checkLiked.uniqueness], {device: "unvoted" });
   }else{
     likes = likes+1;
     kv.set(["likes"], {"likes": likes });
     kv.set([checkLiked.uniqueness], {device: "voted" });
-
   }
 
   return likes
