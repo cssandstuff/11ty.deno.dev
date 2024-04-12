@@ -119,7 +119,7 @@
     /* margin-left: 0.08em;
     transform: translateY(0.5em);  */
     z-index: 99;
-    --pixelwidth: 0.15em;
+    --pixelwidth: 0.152em;
     --gridwidth: 0.15em;
     font-size: 16px;
     width: 2.4em;
@@ -173,7 +173,7 @@
 
 
   #likeme .button{
-    --pixelwidth: 0.151em;
+    --pixelwidth: 0.152em;
     --gridwidth: 0.15em;
     --offset: 0em;
     font-size: 16px;
