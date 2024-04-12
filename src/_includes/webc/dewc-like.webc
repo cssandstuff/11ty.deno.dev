@@ -173,7 +173,7 @@
 
 
   #likeme .button{
-    --pixelwidth: 0.15em;
+    --pixelwidth: 0.151em;
     --gridwidth: 0.15em;
     --offset: 0em;
     font-size: 16px;
