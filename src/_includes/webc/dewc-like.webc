@@ -87,6 +87,7 @@
     }
   }
 
+
 	#likeme {
     display: flex;
     flex-direction: column;
@@ -94,7 +95,8 @@
   }
 
   #likeme output{
-    color: var(--darkgrey);
+    font-size: 1.5em;
+    color: var(--mauve);
     min-height: 1.2em;
     width: 100%;
     display: flex;
@@ -119,11 +121,11 @@
     /* margin-left: 0.08em;
     transform: translateY(0.5em);  */
     z-index: 99;
-    --pixelwidth: 0.155em;
-    --gridwidth: 0.15em;
-    font-size: 16px;
-    width: 2.4em;
-    height: 2.4em;
+    --pixelwidth: 1em;
+    --gridwidth: 1em;
+    font-size: 0.25em;
+    width: 15em;
+    height: 15em;
 
     content: "";
     position: absolute;
@@ -173,12 +175,12 @@
 
 
   #likeme .button{
-    --pixelwidth: 0.155em;
-    --gridwidth: 0.15em;
+    --pixelwidth: 1em;
+    --gridwidth: 1em;
     --offset: 0em;
-    font-size: 16px;
-    width: 2.4em;
-    height: 2.4em;
+    font-size: 0.25em;
+    width: 15em;
+    height: 15em;
     cursor: pointer;
 
     background: 
