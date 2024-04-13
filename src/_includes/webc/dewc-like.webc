@@ -95,7 +95,7 @@
   }
 
   #likeme output{
-    font-size: 1.5em;
+    font-size: 1.25em;
     color: var(--mauve);
     min-height: 1.2em;
     width: 100%;
@@ -123,7 +123,7 @@
     z-index: 99;
     --pixelwidth: 1em;
     --gridwidth: 1em;
-    font-size: 0.25em;
+    font-size: 0.15em;
     width: 15em;
     height: 15em;
 
@@ -178,7 +178,7 @@
     --pixelwidth: 1em;
     --gridwidth: 1em;
     --offset: 0em;
-    font-size: 0.25em;
+    font-size: 0.15em;
     width: 15em;
     height: 15em;
     cursor: pointer;
