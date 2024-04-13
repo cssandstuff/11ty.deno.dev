@@ -89,6 +89,9 @@
 
 
 	#likeme {
+    --pixelwidth: 1.1em;
+    --gridwidth: 1em;
+    --font-size: 0.15em;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -120,10 +123,8 @@
   #likeme.htmx-swapping::before{
     /* margin-left: 0.08em;
     transform: translateY(0.5em);  */
+    font-size: var(--font-size);
     z-index: 99;
-    --pixelwidth: 1em;
-    --gridwidth: 1em;
-    font-size: 0.15em;
     width: 15em;
     height: 15em;
 
@@ -175,10 +176,8 @@
 
 
   #likeme .button{
-    --pixelwidth: 1em;
-    --gridwidth: 1em;
     --offset: 0em;
-    font-size: 0.15em;
+    font-size: var(--font-size);
     width: 15em;
     height: 15em;
     cursor: pointer;
