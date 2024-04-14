@@ -28,7 +28,7 @@
 
     if (window.navigator && window.navigator.vibrate) {
     // Shake that device! 
-    navigator.vibrate(800);
+    navigator.vibrate(150);
     }
 
     const heart = document.getElementById('likesbutton');
