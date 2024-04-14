@@ -26,6 +26,11 @@
 
   document.body.addEventListener('htmx:afterSwap', function(evt) {
 
+    if (window.navigator && window.navigator.vibrate) {
+    // Shake that device! 
+    navigator.vibrate(800);
+    }
+
     const heart = document.getElementById('likesbutton');
 
     if(evt.detail.requestConfig.verb === "post"){
@@ -39,14 +44,6 @@
       setTimeout(()=>{
         heart.classList.add('hoverfill');
       },300);
-
-
-      //heart.classList.add('hoverfill');
-      // heart.classList.add('hoverfill');
-      // heart.addEventListener("mouseenter", (event) => {
-      //   // Your event handling code here
-      //   heart.classList.add('hoverfill');
-      // });
     }
     
   });
