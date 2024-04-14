@@ -24,14 +24,29 @@
     return uniqueId
   }
 
+  // document.addEventListener("DOMContentLoaded", function(event) { 
+  //   const heart = document.getElementById('likesbutton');
+
+  //   heart.addEventListener("click", function(e) {
+  //       alert('something');
+  //       if (window.navigator && window.navigator.vibrate) {
+  //         navigator.vibrate(150);
+  //       }
+  //   }, false);
+  // });
+
+  const vibrateMe = ()=>{
+      if (window.navigator && window.navigator.vibrate) {
+        navigator.vibrate(150);
+      }
+  }
+
   document.body.addEventListener('htmx:afterSwap', function(evt) {
 
-    if (window.navigator && window.navigator.vibrate) {
-    // Shake that device! 
-    navigator.vibrate(150);
-    }
-
     const heart = document.getElementById('likesbutton');
+
+    heart.removeEventListener("click", vibrateMe);
+    heart.addEventListener("click", vibrateMe, false);
 
     if(evt.detail.requestConfig.verb === "post"){
       
