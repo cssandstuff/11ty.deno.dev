@@ -65,6 +65,9 @@
 
 /* 12 bit rainbow */
 :root{
+  --pink: #DA478E;
+  --blue: #3E67CA;
+  --denogrey: #8E717F;
 	--mauve: #817;
 	--red: #a35;
   --red-0: rgba(179,51,58, 0);
@@ -75,7 +78,6 @@
 	--mint: #4d8;
 	--teal: #2cb;
 	--cyan: #0cb;
-	--blue: #09c;
 	--royal: #36b;
 	--purple: #639;
 	--lightgrey: #d3d3d3;
@@ -102,7 +104,7 @@
   --background: var(--black);
   --foreground: var(--white);
   --foreground-100: var(--darkgrey);
-  --linkColor: var(--teal);
+  --blue: #6587FF;
   color-scheme: dark;
 }
 
