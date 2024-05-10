@@ -1,3 +1,3 @@
 export default {
-  likes: 152
+  likes: 151
 }

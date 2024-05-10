@@ -1,35 +1,35 @@
 {% set currentUrl = page.url %}
 {%- css %}
-  .dewc-nav{
+  .nav{
     margin-bottom: var(--space-3);
     font-family: var(--fontFam);
     font-weight: 300;
     font-size: 1.2em;
   }
     
-  .dewc-nav ul{
+  .nav ul{
     display: flex;
     gap: var(--space);
     margin: 0;
     padding: 0
   }
 
-  .dewc-nav ul li{
+  .nav ul li{
     list-style: none;
     padding: 0; 
     margin: 0;
   }
 
-  .dewc-nav [aria-current="page"]{
+  .nav [aria-current="page"]{
     text-decoration-thickness: 2px;
     text-decoration-color: var(--linkColor);
   }
 
-  .dewc-nav ul li:first-child{
+  .nav ul li:first-child{
     margin-left: calc( var(--space)/ 3 * -1)
   }
 
-  .dewc-nav ul li a{
+  .nav ul li a{
     padding: var(--space) calc( var(--space)/ 2);
     display: block;
   }
@@ -51,7 +51,7 @@
 	});
 {% endjs %}
 
-<nav id="nav" class="dewc-nav">
+<nav id="nav" class="nav">
   <ul role="list">
     <li>
       <a data-hx-push-url="/" data-hx-get="/slim.html" {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>

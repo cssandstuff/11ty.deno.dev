@@ -7,7 +7,7 @@
 
 <style webc:scoped>
 	:host {
-		padding: var(--space);
+		padding: var(--space) calc(var(--space) * 1.5);
 		background-color: var(--foreground-100);
 		display: flex;
     justify-content: space-between;

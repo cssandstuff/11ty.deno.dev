@@ -1,5 +1,5 @@
 <template>
-	<label>darkmode <div class="switch"><input type="checkbox" /></div></label>
+	<label><span>light</span><div class="switch"><input type="checkbox" /></div><span>dark</span></label>
 </template>
 
 <script>
@@ -34,11 +34,24 @@
 </script>
 
 <style webc:scoped>
-	/* might want this scoped or pass props to components or some other solution but for now this works */
-	c-theme:has(input:checked)::after{
-		content: 'is dark!'
+	:host .switch + span{
+		opacity: 0.4;
 	}
 
+	:host:has(input:checked) label .switch + span{
+		opacity: 1;
+	}
+	:host:has(input:checked) label > span{
+		opacity: 0.4;
+	}
+
+
+	:host label{
+		display: flex;
+		gap: 0.35em;
+		align-items: center;
+	}
+	
 	:host input{
 		appearance: none;
 		position: absolute;
@@ -58,7 +71,6 @@
 		width: 2.2em;
 		height: 1em;
 		position: relative;
-		margin-left: 0.3em;
 		margin-bottom: -0.2em;
 	}
 
@@ -79,13 +91,5 @@
 	:host .switch:has(input:checked)::before{
 		transform: translateX(1.2em);
 	}
-
-	/* body:has(c-theme input:checked){
-		--background: var(--black);
-		--foreground: var(--white);
-		--foreground-100: var(--darkgrey);
-		--linkColor: var(--teal);
-		color-scheme: dark;
-	} */
 
 </style>
