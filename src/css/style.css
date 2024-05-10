@@ -99,10 +99,13 @@
 
 /* 12 bit rainbow */
 :root{
-  --balloonstroke: #DA478E;
-  --balloonfill1: #FF9ABE;
+  --balloonstroke1: #715E5E;
+  --balloonstroke2: #DA478E;
+  --balloonfill1: #ED5FA3;
   --balloonfill2: #ED60A3;
-  --dinohead: #BE3D3D;
+  --balloonfill3: #AC9BA3;
+  --balloonfill4: #9C8C90;
+  --dinohead: #715E5E;
   --shine: hwb(0 100% 0% / 0.5);
   --slash: #4773DE;
   --fontFam: "Blinker", var(--fontFamFallback);
@@ -143,9 +146,12 @@
   --denogreydark: hwb(0 100% 0% / 0.663);
   color-scheme: dark;
   --slash: var(--blue);
-  --balloonstroke: hsla(331, 67%, 57%, 0.85);
-  --balloonfill1: hsla(339, 100%, 80%, 0.4);
+  --balloonstroke1: hwb(0 71% 24% / 0.5);
+  --balloonstroke2: hwb(331 28% 15% / 0.8);
+  --balloonfill1: hsla(331, 80%, 65%, 0.4);
   --balloonfill2: hwb(331 38% 7% / 0.4);
+  --balloonfill3: hwb(332 61% 33% / 0.4);
+  --balloonfill4: hwb(345 55% 39% / 0.3);
   --dinohead: #000;
   --shine: hwb(0 100% 0% / 0.25);
 }
