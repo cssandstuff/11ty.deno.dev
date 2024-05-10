@@ -1,7 +1,6 @@
 import { uuid, Context } from "./deps.ts";
 
 const kv = await Deno.openKv();
-await kv.delete(["likes"]);
 
 type Likes = {
   value: {
