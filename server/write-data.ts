@@ -1,3 +1,5 @@
+// You can loop through KV content so that its available for Eleventy which is kind of neat.
+// At the moment this is local only.
 const kv = await Deno.openKv();
 
 type Likes = {

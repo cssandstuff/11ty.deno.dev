@@ -1,3 +1,5 @@
+<!--- I know this is super overly complicated, especially because I'm drawing a heart using the just one div aka lynn fisher technique. --->
+<!--- What I was hoping to show was how you can use htmx to post things to deno --->
 <div id="likeme" webc:root="override">
   <button id="likesbutton" class="button"><span class="visually-hidden">like this</span></button>
   <output id="likes" 
@@ -24,17 +26,6 @@
     return uniqueId
   }
 
-  // document.addEventListener("DOMContentLoaded", function(event) { 
-  //   const heart = document.getElementById('likesbutton');
-
-  //   heart.addEventListener("click", function(e) {
-  //       alert('something');
-  //       if (window.navigator && window.navigator.vibrate) {
-  //         navigator.vibrate(150);
-  //       }
-  //   }, false);
-  // });
-
   const vibrateMe = ()=>{
       if (window.navigator && window.navigator.vibrate) {
         navigator.vibrate(150);
@@ -44,15 +35,11 @@
   document.body.addEventListener('htmx:afterSwap', function(evt) {
 
     const heart = document.getElementById('likesbutton');
-
     heart.removeEventListener("click", vibrateMe);
     heart.addEventListener("click", vibrateMe, false);
 
     if(evt.detail.requestConfig.verb === "post"){
-      
-      // Add event listener for "mouseenter" event
       heart.addEventListener("mouseleave", (event) => {
-        // Your event handling code here
         heart.classList.add('hoverfill')
       });
     }else{
@@ -60,11 +47,9 @@
         heart.classList.add('hoverfill');
       },300);
     }
-    
   });
-
-  
 </script>
+
 <style>
   @keyframes fadeIn {
     0% {
@@ -99,7 +84,6 @@
     }
   }
 
-
 	#likeme {
     --pixelwidth: 1.1em;
     --gridwidth: 1em;
@@ -129,25 +113,21 @@
   #likeme.htmx-request output,
   #likeme.htmx-swapping output{
     opacity: 0.3;
-    /* transform: translateY(8px); */
   }
 
   #likeme.htmx-request::before,
   #likeme.htmx-swapping::before{
-    /* margin-left: 0.08em;
-    transform: translateY(0.5em);  */
     font-size: var(--font-size);
     z-index: 99;
     width: 15em;
     height: 15em;
-
     content: "";
     position: absolute;
     transition: 0.3s opacity;
     animation: pulse 1s alternate infinite;
 
+    /* have a heart */
     background: 
-    /* heart */
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 0) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5), 
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 7) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
@@ -169,24 +149,13 @@
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 9) calc(var(--gridwidth) * 11) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 10) calc(var(--gridwidth) * 10) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 11) calc(var(--gridwidth) * 9) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
-    linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 12) calc(var(--gridwidth) * 8) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1);    
-
-    background-repeat: no-repeat;
-    
+    linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 12) calc(var(--gridwidth) * 8) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1);
+    background-repeat: no-repeat; 
   }
 
   #likeme.htmx-swapping::before{
     opacity: 0;
   }
-
-  /* #likeme > :is(button, output){
-    opacity: 0;
-  } */
-
-  .fadeIn > :is(button, output){
-    /* animation: fadeIn 0.3s both; */
-  }
-
 
   #likeme .button{
     --offset: 0em;
@@ -252,14 +221,8 @@
     linear-gradient(2deg, var(--lightpink), var(--pink)) calc(var(--gridwidth) * 12 + var(--offset)) calc(var(--gridwidth) * 0 + var(--offset)) / var(--pixelwidth) calc(var(--gridwidth) * 9),
     linear-gradient(2deg, var(--lightpink), var(--pink)) calc(var(--gridwidth) * 13 + var(--offset)) calc(var(--gridwidth) * 1 + var(--offset)) / var(--pixelwidth) calc(var(--gridwidth) * 7),
     linear-gradient(2deg, var(--lightpink), var(--pink)) calc(var(--gridwidth) * 14 + var(--offset)) calc(var(--gridwidth) * 2 + var(--offset)) / var(--pixelwidth) calc(var(--gridwidth) * 5);
-
     background-repeat: no-repeat;
   }
-
-  /* #likeme.done .button:hover{
-    --offset:0.15em;
-    transition: 0.3s all;
-  } */
 
   #likeme.done .button::before,
   #likeme.done .button::after{

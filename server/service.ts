@@ -1,8 +1,6 @@
 import { uuid, Context } from "./deps.ts";
 
 const kv = await Deno.openKv();
-//await kv.delete(["likes"]);
-//localStorage.clear();
 
 type Likes = {
   value: {
@@ -27,14 +25,12 @@ async function checkAlreadyLiked (ctx: Context){
 
   // only do KV stuff if we have a valid and unique idendtifier from the client
   if(isValid && uniqueness){
-    const myDevice = await kv.get([uniqueness]) as UniqueVoters ?? "" //localStorage.getItem(device);
+    const myDevice = await kv.get([uniqueness]) as UniqueVoters ?? ""
 
     if(myDevice?.value?.device === "voted"){
       alreadyLiked = true;
     }
   }
-  
-  //alreadyLiked = false;
 
   return {likes, alreadyLiked, uniqueness}
 }
