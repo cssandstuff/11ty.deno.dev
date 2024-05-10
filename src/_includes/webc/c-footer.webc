@@ -12,5 +12,6 @@
 		display: flex;
     justify-content: space-between;
 		align-items: baseline;
+		border-radius: 7px 7px 0 0;
 	}
 </style>

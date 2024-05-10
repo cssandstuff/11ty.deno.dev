@@ -13,36 +13,54 @@
     font-size: 100%;
   }
   
+  button{
+    font-family: var(--fontFam);
+  }
+
   body {
+    overflow-y: scroll;
     font-size: 1em;
     background-color: var(--background);
-    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+    font-family: var(--fontFam);
     color: var(--foreground);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     margin: 0;
     padding: 0;
+    height: 100%;
+    max-width: 90ch;
+    margin: auto;
+  }
+
+  .layout{
+    display: grid;
+    grid-template-rows: 220px 1fr auto;
     grid-template-areas: 
       "a"
       "b"
       "c";
     height: 100%;
-    max-width: 90ch;
     margin: auto;
   }
   
   main{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
     max-width: 56ch;
-    padding: var(--space) calc(var(--space) * 2)
+    padding: 0 calc(var(--space) * 2) var(--space) calc(var(--space) * 2);
   }
   
   h1, h2, h3, h4, h5, h6, p { 
     margin: 0; 
     line-height: 1;
   }
+
+  h1, h2, h3, h4, h5, h6{
+    color: var(--denogrey);
+    font-family: var(--fontFam);
+  }
   
-  p{
+  main p{
     line-height: 1.2;
+    color: var(--denogreydark);
+    margin-bottom: var(--space-3);
   }
   
   a{
@@ -65,9 +83,14 @@
 
 /* 12 bit rainbow */
 :root{
+  --fontFam: "Blinker", var(--fontFamFallback);
+  --fontFamFallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
   --pink: #DA478E;
+  --lightpink: #ff77b9;
   --blue: #3E67CA;
   --denogrey: #8E717F;
+  --denogreyHWB: 331 44% 44%;
+  --denogreydark: #56454d;
 	--mauve: #817;
 	--red: #a35;
   --red-0: rgba(179,51,58, 0);

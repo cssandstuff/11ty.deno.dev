@@ -2,38 +2,13 @@
 title: Home
 ---
 
-WebC is an awesome way to get started with web components and this is a quick starter site created for testing.
-{{ meta.siteName }}
-{{title}}
+Now that Eleventy supports ESM, it means we can use it in places we couldn't previously.
 
-{% renderTemplate "webc" %}
-<c-hello>YO!</c-hello>
-<button data-hx-get="/about/slim.html"
-    data-hx-trigger="click"
-    data-hx-target="#content"
-    data-hx-swap="outerHTML"
-    data-hx-push-url="/about/"
->
-    Go to Abouts
-</button>
-<button data-hx-get="/about/slim.html"
-    data-hx-trigger="click"
-    data-hx-target="#content"
-    data-hx-swap="outerHTML"
-    data-hx-push-url="true"
->
-    Go to About same push url
-</button>
-<button data-hx-get="/about/slim.html"
-    data-hx-trigger="click"
-    data-hx-target="#content"
-    data-hx-swap="outerHTML"
-    data-hx-push-url="false"
->
-    Go to About no push
-</button>
-<a href="/about/">About plain</a>
-<a href="/about/slim.html" data-hx-push-url="/about/">About push slim</a>
-<a href="/about/slim.html" data-hx-push-url="/about/slim">About same</a>
-<a data-hx-get="/about/slim.html" href="/about/" data-hx-push-url="/about/">About get slim</a>
-{% endrenderTemplate %}
+
+## Deno
+
+Deno is a fast and great alternative to Node and now supports most of the node ecosystem, so it seems like a great time to try and bring the two together in a starter project, and that's exactly what this is.
+
+## Htmx
+
+Deno is a fast and great alternative to Node and now supports most of the node ecosystem, so it seems like a great time to try and bring the two together in a starter project, and that's exactly what this is.

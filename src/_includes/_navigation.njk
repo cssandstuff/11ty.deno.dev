@@ -2,6 +2,9 @@
 {%- css %}
   .dewc-nav{
     margin-bottom: var(--space-3);
+    font-family: var(--fontFam);
+    font-weight: 300;
+    font-size: 1.2em;
   }
     
   .dewc-nav ul{
@@ -51,13 +54,12 @@
 <nav id="nav" class="dewc-nav">
   <ul role="list">
     <li>
-      <a data-hx-swap="innerHTML" data-hx-push-url="/" data-hx-get="/slim.html" {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
+      <a data-hx-push-url="/" data-hx-get="/slim.html" {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
     </li>
 
     {% for link in collections.pages %}
       <li>
         <a
-        data-hx-swap="innerHTML"
         data-hx-push-url="{{link.url}}" data-hx-get="{{link.url}}slim.html"
         {% if currentUrl === link.url %}aria-current="page"{% endif %}
         href="{{ link.url }}">
