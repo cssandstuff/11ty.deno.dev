@@ -103,7 +103,7 @@
 	#likeme {
     --pixelwidth: 1.1em;
     --gridwidth: 1em;
-    --font-size: 0.15em;
+    --font-size: 0.15rem;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -267,9 +267,9 @@
     position: absolute;
     width: 150%;
     height: 75%;
-    left: -32%;
+    left: -30%;
     top: -4px;
-    background: /* heart */ linear-gradient(45deg, var(--lightpink-0) 30%, var(--lightpink) 38%, var(--lightpink-0) 40%) -3px -16px / 12px 30px, linear-gradient(0deg, var(--lightpink-0) 27%, var(--lightpink) 38%, var(--lightpink-0) 40%) -2px -5px / 12px 30px, linear-gradient(-45deg, var(--lightpink-0) 30%, var(--lightpink) 38%, var(--lightpink-0) 40%) -3px 3px / 12px 30px;
+    background: /* heart */ linear-gradient(45deg, var(--lightpink-0) 9px, var(--lightpink) 40%, var(--lightpink-0) 40%) -3px -16px / 12px 30px, linear-gradient(0deg, var(--lightpink-0) 27%, var(--lightpink) 38%, var(--lightpink-0) 40%) -3px -3px / 12px 30px, linear-gradient(-45deg, var(--lightpink-0) 30%, var(--lightpink) 40%, var(--lightpink-0) 40%) -4px 7px / 12px 30px; 
     background-repeat: no-repeat;
     animation: fadeOut 0.6s forwards ease-out;
     pointer-events: none;
@@ -280,7 +280,7 @@
   }
 
   #likeme:not(.done) .button.hoverfill:hover{
-    transition: 0.4s all cubic-bezier(1, -0.44, 0.61, 1.52);
+    transition: 0.4s all cubic-bezier(1, 0, 0.61, 1.02);
     background: /* heart */
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 0) calc(var(--gridwidth) * 2) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 5), 
     linear-gradient(var(--lightpink), var(--pink)) calc(var(--gridwidth) * 1) calc(var(--gridwidth) * 1) / calc(var(--pixelwidth) * 1) calc(var(--gridwidth) * 1),
