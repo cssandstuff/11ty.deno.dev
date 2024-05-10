@@ -3,7 +3,15 @@ title: Deno
 tags: pages
 ---
 
-## What the? How do I use this
+## How do I use this?
 
-I made a blog post about this project which has [more detail](http://cssandstuff.deno.dev/writing/pairing-eleventy-with-htmx-and-deno/), you can visit.
+### Installing Deno
+
+To install Deno, follow the [docs here](https://docs.deno.com/runtime/manual/getting_started/installation),
+You can then clone or download [this starter](https://github.com/cssandstuff/11ty-deno-htmx)
+
+For local development run the deno command: <pre>deno task dev</pre>
+to deploy to deno.deploy you just need to [sign up for an account](https://deno.com/deploy), then once logged in you can create a new project and point it to your github repo.
+
+<!-- I made a blog post about this project which has [more details](http://cssandstuff.deno.dev/writing/pairing-eleventy-with-htmx-and-deno/). -->
 

@@ -6,7 +6,7 @@ Now that Eleventy supports ESM (from version 3.x), it means we can use it in pla
 
 ## Deno
 
-Deno is a fast, secure and great alternative to Node and now supports most of the node ecosystem, so it seems like a great time to try and bring the two together in a starter project, and that's exactly what this is. Deno.deploy is also a super great place to try out ideas and has native key-pair database for doing server-side like things.
+Deno is a fast, secure and great alternative to Node and now supports most of the node ecosystem, so it seems like a great time to try and bring the two together in a starter project, and that's exactly what this is. You can host staticly on Deno, but then there's room to do server stuff too if you want.
 
 ## Htmx
 

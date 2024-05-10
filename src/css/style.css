@@ -56,13 +56,28 @@
     color: var(--denogrey);
     font-family: var(--fontFam);
   }
+
+  h3{
+    color: var(--pink);
+  }
+
+  pre{ 
+    display: block;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.5em;
+    border-radius: 4px;
+    font-size: 1rem;
+  } 
+
+
   
   main p{
     line-height: 1.2;
     color: var(--denogreydark);
-    margin-bottom: var(--space-3);
   }
-  
+
+
   a{
     text-underline-offset: 0.3em;
     text-decoration-color: var(--underline-resting);
@@ -139,8 +154,11 @@
   display: none;
 }
 #main div > *+* {
-  display: block;
-  margin-top: calc(var(--margin)/2);
+  margin-top: calc(var(--space));
+}
+
+#main div > *:not(h2)+*:is(h2,h3) {
+  margin-top: var(--space-2);
 }
 
 .visually-hidden {
