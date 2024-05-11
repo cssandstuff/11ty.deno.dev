@@ -114,6 +114,7 @@
   --lightpink: #ff77b9;
   --lightpink-0: hwb(331 47% 0% / 0);
   --blue: #3E67CA;
+  --blueHWB: 222 24% 21%;
   --denogrey: #8E717F;
   --denogreyHWB: 331 44% 44%;
   --denogreydark: #56454d;
@@ -133,7 +134,7 @@
 	--background: var(--white);
 	--linkColor: var(--blue);
 	--linkVisited: var(--royal);
-	--underline-resting: rgba(0, 153, 204, 0.203);
+	--underline-resting: hwb(var(--blueHWB)/ 0.3);
 
 	--foreground-100: var(--lightgrey)
 }
@@ -143,6 +144,7 @@
   --foreground: var(--white);
   --foreground-100: var(--darkgrey);
   --blue: #6587FF;
+  --blueHWB: 227 40% 0%;
   --denogreydark: hwb(0 100% 0% / 0.663);
   color-scheme: dark;
   --slash: var(--blue);
