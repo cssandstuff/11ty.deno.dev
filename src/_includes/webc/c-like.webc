@@ -1,4 +1,4 @@
-<!--- I know this is super overly complicated, especially because I'm drawing a heart using the just one div aka lynn fisher technique. --->
+<!--- I know this is super overly complicated, and was largely an experiment to draw a heart using the just one div aka lynn fisher technique. --->
 <!--- What I was hoping to show was how you can use htmx to post things to deno --->
 <div id="likeme" webc:root="override">
   <button id="likesbutton" class="button"><span class="visually-hidden">like this</span></button>
@@ -26,17 +26,9 @@
     return uniqueId
   }
 
-  const vibrateMe = ()=>{
-      if (window.navigator && window.navigator.vibrate) {
-        navigator.vibrate(150);
-      }
-  }
-
   document.body.addEventListener('htmx:afterSwap', function(evt) {
 
     const heart = document.getElementById('likesbutton');
-    heart.removeEventListener("click", vibrateMe);
-    heart.addEventListener("click", vibrateMe, false);
 
     if(evt.detail.requestConfig.verb === "post"){
       heart.addEventListener("mouseleave", (event) => {
