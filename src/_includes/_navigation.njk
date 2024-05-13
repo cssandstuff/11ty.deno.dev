@@ -9,7 +9,7 @@
     
   .nav ul{
     display: flex;
-    gap: var(--space);
+    gap: calc(var(--space) / 2);
     margin: 0;
     padding: 0
   }
@@ -54,18 +54,23 @@
 <nav id="nav" class="nav">
   <ul role="list">
     <li>
-      <a data-hx-push-url="/" data-hx-get="/slim.html" {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
+      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
     </li>
 
     {% for link in collections.pages %}
       <li>
         <a
-        data-hx-push-url="{{link.url}}" data-hx-get="{{link.url}}slim.html"
         {% if currentUrl === link.url %}aria-current="page"{% endif %}
         href="{{ link.url }}">
           {{ link.data.title }}
         </a>
       </li>
     {%- endfor %}
+
+    <li style="margin-left: auto">
+      <a href="https://github.com/cssandstuff/11ty-htmx-deno">View on Github</a>
+    </li>
+
+
   </ul>
 </nav>
