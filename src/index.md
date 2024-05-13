@@ -1,5 +1,5 @@
 ---
-title: Home
+title: 11ty
 ---
 
 ## 11ty
