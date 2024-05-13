@@ -8,7 +8,7 @@ Deno is a fast, secure and great alternative to Node and now supports most of th
 
 ## Htmx
 
-Not really neccessary, but I like what this project sets out to acheive and it pairs great with Eleventy... you can do client side routing pretty easily with minimal changes to your markup.
+I like what this project sets out to achieve and it pairs great with Eleventy... you can do client side routing pretty easily with minimal changes to your markup.
 
 ### Notes about WebC
 

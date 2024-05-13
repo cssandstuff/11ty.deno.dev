@@ -8,7 +8,7 @@ tags: pages
 ### Installing Deno
 
 To install Deno, follow the [docs here](https://docs.deno.com/runtime/manual/getting_started/installation),
-You can then clone or download [this starter](https://github.com/cssandstuff/11ty-deno-htmx)
+You can then clone or download [this starter](https://github.com/cssandstuff/11ty-htmx-deno)
 
 For local development run the deno command: <pre>deno task dev</pre>
 
