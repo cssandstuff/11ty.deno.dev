@@ -16,4 +16,4 @@ const data = `export default {
   likes: ${likes}
 }`;
 
-await Deno.writeTextFile("./src/_data/likes.js", data);
+await Deno.writeTextFile("./src/_data/likes.mjs", data);
