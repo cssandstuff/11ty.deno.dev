@@ -1,4 +1,4 @@
-const environmentVars = () => {
+const multiTemplates = () => {
   if ( Deno.env.get("LAYOUT") === "slim"){
     return { 
       layout: "nolayout.njk",
@@ -13,4 +13,4 @@ const environmentVars = () => {
   }
 };
 
-export default environmentVars
+export default multiTemplates
