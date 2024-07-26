@@ -2,6 +2,6 @@
 	function year() {
 		const now = new Date();
 
-		return `&copy; ${now.getFullYear()} cssandstuff.`;
+		return `&copy; ${now.getFullYear()} <a style="color: var(--foreground)" href="http://cssandstuff.com/">cssandstuff</a>.`;
 	}
 </script>
