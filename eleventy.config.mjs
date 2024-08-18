@@ -8,6 +8,7 @@ export default function(eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("./src/css/*.css");
+  eleventyConfig.addPassthroughCopy("./src/robots.txt");
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(pluginWebc,{
 		components: "src/_includes/webc/**/*.webc",
