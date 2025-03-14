@@ -1,6 +1,3 @@
-/* @import "reset.css" layer(reset);
-@import "root.css" layer(root); */
-
 @layer reset{
   * {
     box-sizing: border-box;
