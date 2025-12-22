@@ -6,7 +6,6 @@
   </head>
   <body>
     <h1 class="visually-hidden" id="mainHeading" data-hx-swap-oob="innerHTML">{{title}}</h1>
-    <div id="content">{{ content | safe }}</div>
-    <style id="styleswap" data-hx-swap-oob="true">{% getBundle "css" %}</style>
+    <div id="content">{{ content }}</div>
   </body>
 </html>

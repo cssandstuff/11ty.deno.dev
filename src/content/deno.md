@@ -1,6 +1,7 @@
 ---
 title: Deno
 tags: pages
+order: 2
 ---
 
 ## How do I use this?

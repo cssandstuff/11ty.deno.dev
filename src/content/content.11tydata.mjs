@@ -1,13 +1,13 @@
 const multiTemplates = () => {
   if ( Deno.env.get("LAYOUT") === "slim"){
     return { 
-      layout: "nolayout.njk",
+      layout: "nolayout.vto",
       permalink: "/{{ title | slugify }}/slim.html"
     }
   }
   else {
     return { 
-      layout: "layout.njk",
+      layout: "layout.vto",
       permalink: "/{{ title | slugify }}/"
     }
   }

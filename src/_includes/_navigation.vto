@@ -1,0 +1,77 @@
+{{ set currentUrl = page.url }}
+{{ set sortedPages = [...collections.pages].sort((a, b) => {
+  // Sort by order
+  return (a.data.order - b.data.order);
+}) }}
+
+{{- js }}
+  document.body.addEventListener('htmx:afterSwap', function(evt) {
+    let currentSlug = window.location.pathname;
+    let navLinks = document.querySelectorAll('#nav a');
+
+    navLinks.forEach(function(link) {
+      let linkSlug = link.getAttribute('href');
+      if (currentSlug === linkSlug) {
+        link.setAttribute("aria-current", "page")
+      }else{
+        link.removeAttribute("aria-current")
+      }
+    });
+  });
+{{ /js }}
+
+<nav id="nav" class="nav">
+  <ul role="list">
+    {{ for link of sortedPages }}
+      <li>
+        <a
+        data-hx-target="#content"
+        data-hx-push-url="{{link.url}}" data-hx-get="{{link.url}}?hx"
+        {{ if (currentUrl === link.url) }}aria-current="page"{{ /if }}
+        href="{{ link.url }}">
+          {{ link.data.title }}
+        </a>
+      </li>
+    {{ /for }}
+    <li style="margin-left: auto">
+      <a href="https://github.com/cssandstuff/11ty-htmx-deno">View on Github</a>
+    </li>
+  </ul>
+</nav>
+
+{{- css }}
+  .nav{
+    margin-bottom: var(--space);
+    font-family: var(--fontFam);
+    font-weight: 300;
+    font-size: 1.2em;
+    padding: 0 var(--space) 0 calc( var(--space) * 1.5 );
+  }
+    
+  .nav ul{
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0
+  }
+
+  .nav ul li{
+    list-style: none;
+    padding: 0; 
+    margin: 0;
+  }
+
+  .nav [aria-current="page"]{
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--linkColor);
+  }
+
+  .nav ul li:first-child{
+    margin-left: calc( var(--space)/ 3 * -1)
+  }
+
+  .nav ul li a{
+    padding: var(--space) calc( var(--space)/ 2);
+    display: block;
+  }
+{{ /css }}

@@ -1,0 +1,25 @@
+<footer class="footer">
+  <p>
+    {{>
+      function year() {
+        const now = new Date();
+
+        return `&copy; ${now.getFullYear()} <a style="color: var(--foreground)" href="http://cssandstuff.com/">cssandstuff</a>.`;
+      }
+    }}
+    {{year()}}
+  </p>
+	{{ include "./_colormode.vto"}}
+</footer>
+
+{{- css }}
+  .footer {
+    margin-top: var(--space-3);
+    padding: var(--space) calc(var(--space) * 1.5);
+    background-color: var(--foreground-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-radius: 7px 7px 0 0;
+  }
+{{ /css }}
