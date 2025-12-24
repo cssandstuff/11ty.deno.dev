@@ -1,0 +1,159 @@
+<cssandstuff-colormode>
+<template>
+  <label class="colormode">
+    <span>light</span>
+    <div class="switch">
+      <input tabindex="0" id="theme-switch" type="checkbox" />
+    </div>
+    <span>dark</span>
+  </label>
+</template>
+</cssandstuff-colormode>
+
+{{- js }}
+  if (typeof updateSourceMedia === 'undefined') {
+
+    let darkMode = window.localStorage.getItem("darkMode");
+
+    function updateColorMode(colorMode, inputToggle){
+
+      if(colorMode === 'dark'){
+        document.documentElement.classList.add('is-dark');
+        darkMode = true;
+        inputToggle.checked = true;
+        
+      }else{
+        document.documentElement.classList.remove('is-dark');
+        darkMode = false;
+        inputToggle.checked = false;	
+      }
+    }
+
+    function darkLogic(inputToggle){
+      // If system is in dark mode and no preference, roll with that
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          if(darkMode===null || darkMode==='true') {
+            updateColorMode('dark', inputToggle);
+          }else{
+            updateColorMode('light', inputToggle);
+          }
+
+        }else{
+          // no system preferences so roll with local storage if it exists
+          if(darkMode==='true') {
+            updateColorMode('dark', inputToggle);
+          }else{
+            updateColorMode('light', inputToggle);
+          }
+        }
+    }
+
+    document.body.addEventListener('htmx:afterSwap', function(evt) {
+      
+      const target = evt.target.id;
+      //need to read this in again
+      darkMode = window.localStorage.getItem("darkMode");
+    })
+
+    class colormode extends HTMLElement {
+      connectedCallback() {
+        const template = this.querySelector("template");
+
+        // Swap out the template with its contents so they become visible
+        if(template!==null) template.replaceWith(template.content);
+        
+        let inputToggle = this.querySelector("input");
+
+        // run through our light/dark logic
+        darkLogic(inputToggle);
+
+        // listen if it's switched
+        window.matchMedia('(prefers-color-scheme: dark)')
+              .addEventListener('change', event => {
+          if (event.matches) {
+            // dark mode
+            updateColorMode('dark', inputToggle);
+          } else {
+            // light mode
+            updateColorMode('light', inputToggle);
+          }
+        })
+          
+        inputToggle.addEventListener("click", () => {
+          window.localStorage.setItem('darkMode', inputToggle.checked);
+
+          if (!document.startViewTransition) {
+            inputToggle.checked ? document.documentElement.classList.add('is-dark') : document.documentElement.classList.remove('is-dark');
+            return;
+          }
+
+          // With a transition:
+          inputToggle.checked ? document.startViewTransition(() => document.documentElement.classList.add('is-dark')) : document.startViewTransition(() => document.documentElement.classList.remove('is-dark'));
+        })
+      }
+    }
+
+    customElements.get('cssandstuff-colormode') || customElements.define('cssandstuff-colormode', colormode);
+  }
+{{ /js }}
+
+
+{{- css }}
+  .colormode .switch + span{
+    opacity: 0.4;
+  }
+
+  .colormode:has(input:checked) .switch + span{
+    opacity: 1;
+  }
+  
+  .colormode:has(input:checked) > span{
+    opacity: 0.4;
+  }
+
+  .colormode {
+    display: flex;
+    gap: 0.35em;
+    align-items: center;
+  }
+
+  .colormode input{
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .colormode .switch{
+    background-color: var(--darkgrey);
+    border-radius: 99em;
+    overflow: hidden;
+    display: inline-block;
+    width: 2.2em;
+    height: 1em;
+    position: relative;
+    margin-bottom: -0.2em;
+  }
+
+  .colormode:has(input:checked) .switch{
+    --darkgrey: var(--black);
+  }
+
+  .colormode .switch::before{
+    content: "";
+    background-color: rgba(255,255,255, 0.5);
+    position: absolute;
+    left: 0; top: 0;
+    height: 1em; width: 1em;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.22, 1.25, 0.74, 1.47);
+  }
+
+  .colormode .switch:has(input:checked)::before{
+    transform: translateX(1.2em);
+  }
+{{/css}}

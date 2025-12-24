@@ -1,24 +1,56 @@
 // Eleventy 3!
-import pluginWebc from "npm:@11ty/eleventy-plugin-webc";
-import { EleventyRenderPlugin } from "npm:@11ty/eleventy@canary";
+import { VentoPlugin } from "eleventy-plugin-vento";
+import { EleventyRenderPlugin } from "@11ty/eleventy";
 
-export default function(eleventyConfig) {
-  eleventyConfig.addPairedShortcode("boxCallout", function(content) {
-
+export default function (eleventyConfig) {
+  eleventyConfig.addPairedShortcode("boxCallout", function (content) {
   });
 
   eleventyConfig.addPassthroughCopy("./src/css/*.css");
   eleventyConfig.addPassthroughCopy("./src/robots.txt");
-	eleventyConfig.addPlugin(EleventyRenderPlugin);
-	eleventyConfig.addPlugin(pluginWebc,{
-		components: "src/_includes/webc/**/*.webc",
-	});
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
 
-	return {
-    htmlTemplateEngine: "njk",
+  eleventyConfig.addBundle("css", {
+    toFileDirectory: "_site",
+    // Add all <style> content to `css` bundle (use <style eleventy:ignore> to opt-out)
+    // Supported selectors: https://www.npmjs.com/package/posthtml-match-helper
+    bundleHtmlContentFromSelector: "style",
+  });
+
+  // Bundle <script> content and adds a {% js %} paired shortcode
+  eleventyConfig.addBundle("js", {
+    toFileDirectory: "_site",
+    // Add all <script> content to the `js` bundle (use <script eleventy:ignore> to opt-out)
+    // Supported selectors: https://www.npmjs.com/package/posthtml-match-helper
+    bundleHtmlContentFromSelector: "script",
+  });
+
+  eleventyConfig.addPlugin(VentoPlugin, {
+    // An array of Vento plugins to use when compiling
+    plugins: [],
+
+    // Enable/disable Eleventy Shortcodes, Paired Shortcodes,
+    // and Filters in .vto templates
+    shortcodes: true,
+    pairedShortcodes: true,
+    filters: true,
+
+    // Define tags that should be trimmed, or set to true
+    // to trim the default tags (see section on Auto-trimming)
+    autotrim: false,
+
+    // A Vento configuration object
+    ventoOptions: {
+      includes: eleventyConfig.directories.includes,
+    },
+  });
+
+  return {
+    templateFormats: ["md", "vto", "html"],
+    htmlTemplateEngine: "vto",
     dir: {
       input: "src",
-      output: "_site"
-    }
-  }
-};
+      output: "_site",
+    },
+  };
+}

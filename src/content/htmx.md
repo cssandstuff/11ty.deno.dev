@@ -1,6 +1,7 @@
 ---
 title: Htmx
 tags: pages
+order: 1
 ---
 
 ## Hello!

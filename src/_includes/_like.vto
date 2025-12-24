@@ -1,6 +1,6 @@
 <!--- I know this is super overly complicated, and was largely an experiment to draw a heart using the just one div aka lynn fisher technique. --->
 <!--- What I was hoping to show was how you can use htmx to post things to deno --->
-<div id="likeme" webc:root="override">
+<div id="likeme">
   <button id="likesbutton" class="button"><span class="visually-hidden">like this</span></button>
   <output id="likes" 
     aria-labelled-by="likebutton"
@@ -15,7 +15,7 @@
   </output>
 </div>
 
-<script>
+{{- js }}
   function uniqueId(){
     let uniqueId = localStorage.getItem('uniqueId');
     
@@ -40,9 +40,9 @@
       },300);
     }
   });
-</script>
+{{ /js }}
 
-<style>
+{{- css }}
   @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -263,4 +263,4 @@
 
     background-repeat: no-repeat;
   }
-</style>
+{{ /css }}
