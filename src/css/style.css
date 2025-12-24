@@ -76,10 +76,9 @@
   }
 
 
-  /* a[href^="http"]::after {
+  a[href^="http"]::after {
     content: " ↗";
-    margin-inline-end: 4px;
-  }*/
+  }
   
   a{
     text-underline-offset: 0.15em;
