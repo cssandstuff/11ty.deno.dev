@@ -58,6 +58,7 @@
 
   h3{
     color: var(--pink);
+    margin-top: 32px !important;
   }
 
   pre{ 
@@ -118,7 +119,7 @@
   --blueHWB: 222 24% 21%;
   --denogrey: #8E717F;
   --denogreyHWB: 331 44% 44%;
-  --denogreydark: #56454d;
+  --denogreydark: #61545a;
 
 	--lightgrey: #d3d3d3;
 	--darkgrey: #444;
@@ -170,6 +171,12 @@
 #main div > *:not(h2)+*:is(h2,h3) {
   margin-top: var(--space-2);
 }
+
+#main a {
+  --linkColor: var(--denogreydark);
+  text-decoration-color: color-mix(in srgb, var(--denogreydark), transparent 80%);
+}
+
 
 .visually-hidden {
   position: absolute;
